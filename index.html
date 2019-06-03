@@ -18,13 +18,13 @@
     
     <div>
         <h3>Total Worldwide Gross Per Marvel Movie Franchise!</h3>
-        <div id="gross-per-franchise"></div>
+        <div id="stacked"></div>
     </div>
     
     
     <script>
     queue()
-        .defer(d3.json, "data/movie_data.JSON")
+        .defer(d3.json, "data/movie_data.json")
         .await(makeGraphs)
     
     function makeGraphs(error, movieData){
@@ -33,22 +33,44 @@
         var franchise_dim = ndx.dimension(dc.pluck('franchise'));
         
         var grossbyIronMan = franchise_dim.group().reduceSum(function (d) {
-            if (d.franchise === "Iron Man") {
+            if (d.title === "Iron Man") {
                 return +d.gross;
             } else {
                 return 0;
             }
         });
         
-        var grossbyCaptainAmerica = franchise_dim.group().reduceSum(function (d) {
-            if (d.franchise === "Captain America") {
+        var grossbyIronMan2 = franchise_dim.group().reduceSum(function (d) {
+            if (d.title === "Iron Man II") {
                 return +d.gross;
             } else {
                 return 0;
             }
         });
         
+        var grossbyIronMan3 = franchise_dim.group().reduceSum(function (d) {
+            if (d.title === "Iron Man III") {
+                return +d.gross;
+            } else {
+                return 0;
+            }
+        });
+    
+        var stackedChart = dc.barChart("#stacked");
+        stackedChart
+            .width(500)
+            .height(500)
+            .dimension(franchise_dim)
+            .group(grossbyIronMan, "Iron Man")
+            .stack(grossbyIronMan2, "Iron Man 2")
+            .stack(grossbyIronMan3, "Iron Man 3")
+            .x(d3.scale.ordinal())
+            .xUnits(dc.units.ordinal)
+            .legend(dc.legend().x(420).y(0).itemHeight(15).gap(5));
         
+        stackedChart.margins().right = 100;
+        
+        dc.renderAll;
     }
         
     </script>
