@@ -23,8 +23,33 @@
     
     
     <script>
+    queue()
+        .defer(d3.json, "data/movie_data.JSON")
+        .await(makeGraphs)
     
+    function makeGraphs(error, movieData){
+        var ndx = crossfilter(movieData);
         
+        var franchise_dim = ndx.dimension(dc.pluck('franchise'));
+        
+        var grossbyIronMan = franchise_dim.group().reduceSum(function (d) {
+            if (d.franchise === "Iron Man") {
+                return +d.gross;
+            } else {
+                return 0;
+            }
+        });
+        
+        var grossbyCaptainAmerica = franchise_dim.group().reduceSum(function (d) {
+            if (d.franchise === "Captain America") {
+                return +d.gross;
+            } else {
+                return 0;
+            }
+        });
+        
+        
+    }
         
     </script>
 </body>
