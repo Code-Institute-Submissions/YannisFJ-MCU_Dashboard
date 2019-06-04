@@ -5,6 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>MCU Dashboard</title>
+    <style type="text/css">
+        div {
+            clear: left;
+        }
+    </style>
     
     <link rel="stylesheet" href="static/css/dc.min.css" type="text/css" />
     
@@ -19,145 +24,37 @@
     
 
     <div id="chart"></div>
+    <div id="movie"></div>
     
     <script>
     
-    var transactionsData = [
-    {"name": "Tom", "store": "Acme", "state": "NY", "spend": 100}, {"name": "Tom", "store": "Big Co.", "state": "NY", "spend": 200}, {"name": "Bob", "store": "Acme", "state": "FL", "spend": 150}, {"name": "Bob", "store": "Acme", "state": "NY", "spend": 200}, {"name": "Bob", "store": "Big Co.", "state": "FL", "spend": 50}, {"name": "Bob", "store": "Big Co.", "state": "NY", "spend": 75}, {"name": "Alice", "store": "Acme", "state": "FL", "spend": 200}, {"name": "Alice", "store": "Big Co.", "state": "NY", "spend": 350}, ];
+    var ironManData = [
+    {"title": "Iron Man", "franchise": "Iron Man", "budget": 186e6, gross: 585e6, "opening weekend": 102e6, "release date": "02/05/2008", "cinemas": 4154},
+    {"title": "Iron Man II", "franchise": "Iron Man", "budget": 170e6, gross: 621e6, "opening weekend": 128e6, "release date": "07/05/2010", "cinemas": 4390},
+    {"title": "Iron Man III", "franchise": "Iron Man", "budget": 200e6, gross: 1215e6, "opening weekend": 174e6, "release date": "03/05/2013", "cinemas": 4253},
+    ];
         
-        var ndx = crossfilter(transactionsData);
+    var ndx = crossfilter(ironManData);
         
-        var name_dim = ndx.dimension(dc.pluck('name'));
-        var total_spend_per_person = name_dim.group().reduceSum(dc.pluck('spend'));
+    var name_dim = ndx.dimension(dc.pluck('title'));
+    var total_spend_per_person = name_dim.group().reduceSum(dc.pluck('gross'));
         
         dc.barChart("#chart")
-            .width(300)
-            .height(150)
-            .margins({top: 10, right: 50, bottom: 30, left: 50})
+            .width(500)
+            .height(500)
+            .margins({top: 10, right: 50, bottom: 30, left: 100})
             .dimension(name_dim)
             .group(total_spend_per_person)
             .transitionDuration(500)
             .x(d3.scale.ordinal())
-            .xAxisLabel("person")
+            .xUnits(dc.units.ordinal)
+            .xAxisLabel("Iron Man Movies")
+            .yAxisLabel("Worldwide Gross (millions $)")
             .yAxis().ticks(4);
             
     dc.renderAll();
     
     </script>
-    
-    <script>
-    /*
-    var h = 500;
-    var w = 500;
-    var dataset = [50, 20, 30, 40, 70, 90, 590];
-    var barPadding = 1;
-    var colWidth = w / dataset.length;
-    
-    var scale = d3.scale.linear()
-                        .domain([0, 600])
-                        .range([0, 500]);
-    
-    var svg = d3.select("#draw-here")
-        .append("svg")
-        .attr("width", w)
-        .attr("height", h);
-        
-    svg.selectAll("rect")
-        .data(dataset)
-        .enter()
-        .append("rect")
-        .attr("x", function (d, i) {
-            return i * colWidth;
-        })
-        .attr("y", function (d) {
-            return h - scale(d);
-        })
-        .attr("height", function (d) {
-            return scale(d);
-        })
-        .attr("width", w / dataset.length - barPadding);
-        })
-    */
-    
-    
-    
-    
-    
-    /*
-    var ironManMovies = [
-        {“title”: “Iron Man”, “franchise”: “Iron Man”, “budget”: 186e6, “gross”: 585, “opening weekend”: 102e6, “release date”: “ 02/05/2008”, “cinemas”: 4154}, {“title”: “Iron Man II”, “franchise”: “Iron Man”, “budget”: 170e6, “gross”: 621, “opening weekend”: 128e6, “release date”: “ 07/05/2010”, “cinemas”: 4390}, {“title”: “Iron Man III”, “franchise”: “Iron Man”, “budget”: 200e6, “gross”: 1215, “opening weekend”: “”, “release date”: “ 03/05/2013”, “cinemas”: 4253},
-        ];
-    
-    var ndx = crossfilter(ironManMovies);
-    
-    var title_dim = ndx.ndx.dimension(dc.dc.pluck('title'));
-    var total_cinema_per_ironManMovie = title_dim.group.reduceSum(dc.pluck('cinemas'));
-    
-    dc.barChart("#iron-chart")
-        .width(300)
-        .height(150)
-        .margins
-        .dimension(title_dim)
-        .group(total_gross_per_ironManMovie)
-        .transitionDuration(500)
-        .x(d3.scale.ordinal())
-        .xUnits(dc.units.ordinal)
-        .xAxisLabel("movie")
-        .yAxis().ticks(4);
-    
-    dc.renderAll();
-    
-    
-    queue()
-        .defer(d3.json, "data/movie_data.json")
-        .await(makeGraphs)
-    
-    function makeGraphs(error, movieData){
-        var ndx = crossfilter(movieData);
-        
-        var franchise_dim = ndx.dimension(dc.pluck('franchise'));
-        
-        var grossbyIronMan = franchise_dim.group().reduceSum(function (d) {
-            if (d.title === "Iron Man") {
-                return +d.gross;
-            } else {
-                return 0;
-            }
-        });
-        
-        var grossbyIronMan2 = franchise_dim.group().reduceSum(function (d) {
-            if (d.title === "Iron Man II") {
-                return +d.gross;
-            } else {
-                return 0;
-            }
-        });
-        
-        var grossbyIronMan3 = franchise_dim.group().reduceSum(function (d) {
-            if (d.title === "Iron Man III") {
-                return +d.gross;
-            } else {
-                return 0;
-            }
-        });
-    
-        var stackedChart = dc.barChart("#stacked");
-        stackedChart
-            .width(500)
-            .height(500)
-            .dimension(franchise_dim)
-            .group(grossbyIronMan, "Iron Man")
-            .stack(grossbyIronMan2, "Iron Man 2")
-            .stack(grossbyIronMan3, "Iron Man 3")
-            .x(d3.scale.ordinal())
-            .xUnits(dc.units.ordinal)
-            .legend(dc.legend().x(420).y(0).itemHeight(15).gap(5));
-        
-        stackedChart.margins().right = 100;
-        
-        dc.renderAll;
-    */ 
-        
-    </script>
+
 </body>
 </html>
