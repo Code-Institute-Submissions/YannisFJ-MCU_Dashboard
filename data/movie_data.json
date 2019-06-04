@@ -1,3 +1,35 @@
 [
-    {“title”: “Iron Man”, “franchise”: “Iron Man”, “budget”: 186e6, “gross”: 585e6, “opening weekend”: 102e6, “release date”: “02/05/2008”, “cinemas”: 4154}, {“title”: “Iron Man II”, “franchise”: “Iron Man”, “budget”: 170e6, “gross”: 621e6, “opening weekend”: 128e6, “release date”: “07/05/2010”, “cinemas”: 4390}, {“title”: “Iron Man III”, “franchise”: “Iron Man”, “budget”: 200e6, “gross”: 1215e6, “opening weekend”: “”, “release date”: “03/05/2013”, “cinemas”: 4253}, {“title”: “Captain America 1: The First Avenger”, “franchise”: “Captain America”, “budget”: 140e6, “gross”: 370e6, “opening weekend”: 65e6, “release date”: “22/07/2011”, “cinemas”: 3715}, {“title”: “Captain America 2: The Winter Soldier”, “franchise”: “Captain America”, “budget”: 170e6, “gross”: 714e6, “opening weekend”: 95e6, “release date”: “04/4/2014”, “cinemas”: 3938}, {“title”: “Captain America 3: Civil War”, “franchise”: “Captain America”, “budget”: 250e6, “gross”: 1140e6, “opening weekend”: 176e6, “release date”: “06/05/2016”, “cinemas”: 4226}, {“title”: “Thor”, “franchise”: “Thor”, “budget”: 150e6, “gross”: 449e6, “opening weekend”: 65e6, “release date”: “05/06/2011”, “cinemas”: 3955}, {“title”: “Thor II: The Dark World”, “franchise”: “Thor”, “budget”: 150e6, “gross”: 644e6, “opening weekend”: 85e6, “release date”: “08/11/2013”, “cinemas”: 3841}, {“title”: “Thor 3: Ragnarock”, “franchise”: “Thor”, “budget”: 180e6, “gross”: 846e6, “opening weekend”: 122e6, “release date”: “03/11/2017”, “cinemas”: 4080}, {“title”: “Ant Man”, “franchise”: “Ant Man”, “budget”: 130e6, “gross”: 518e6, “opening weekend”: 57e6, “release date”: “17/07/2015”, “cinemas”: 3856}, {“title”: “Ant man II”, “franchise”: “Ant-Man”, “budget”: 130e6, “gross”: 623e6, “opening weekend”: 75e6, “release date”: “06/07/2018”, “cinemas”:  4206}, {“title”: “The Avengers”, “franchise”: “Avengers”, “budget”: 225e6, “gross”: 1517e6, “opening weekend”: 207e6, “release date”: “04/05/2012”, “cinemas”: 4349}, {“title”: “Avengers II: Age of Ultron”, “franchise”: “Avengers”, “budget”: 330e6, “gross”: 1403e6, “opening weekend”: 191e6, “release date”: “01/05/2015”, “cinemas”: 4276}, {“title”: “Avengers 3: Infinity War”, “franchise”: “Avengers”, “budget”: 300e6, “gross”: 2048e6, “opening weekend”: 257e6, “release date”: “27/04/2018”, “cinemas”: 4474}, {“title”: “Avengers IV: Endgame”, “franchise”: “Avengers”, “budget”: 356e6, “gross”: 2713e6, “opening weekend”: 357e6, “release date”: “26/04/2019”, “cinemas”: 4662}, {“title”: “Guardians of The Galaxy”, “franchise”: “Guardians of the Galaxy”, “budget”: 170e6, “gross”: 770e6, “opening weekend”: 94e6, “release date”: “01/08/2014”, “cinemas”: 4088}, {“title”: “Guardians of The Galaxy 2”, “franchise”: “Guardians of the Galaxy”, “budget”: 200e6, “gross”: 862e6, “opening weekend”: 146e6, “release date”: “05/05/2017”, “cinemas”: 4347}, 
+{"title": "Iron Man", "franchise": "Iron Man", "budget": 186e6, gross: 585e6, "opening weekend": 102e6, "release date": "02/05/2008", "cinemas": 4154},
+
+{"title": "Iron Man II", "franchise": "Iron Man", "budget": 170e6, gross: 621e6, "opening weekend": 128e6, "release date": "07/05/2010", "cinemas": 4390},
+
+{"title": "Iron Man III", "franchise": "Iron Man", "budget": 200e6, gross: 1215e6, "opening weekend": 174e6, "release date": "03/05/2013", "cinemas": 4253},
+
+{"title": "Captain America I: The First Avenger", "franchise": "Captain America", "budget": 140e6, gross: 370e6, "opening weekend": 65e6, "release date": "22/07/2011", "cinemas": 3715}, 
+
+{"title": "Captain America II: The Winter Soldier", "franchise": "Captain America", "budget": 170e6, gross: 714e6, "opening weekend": 95e6, "release date": "04/4/2014", "cinemas": 3938}, 
+
+{"title": "Captain America III: Civil War", "franchise": "Captain America", "budget": 250e6, gross: 1140e6, "opening weekend": 176e6, "release date": "06/05/2016", "cinemas": 4226}, 
+
+{"title": "Thor", "franchise": "Thor", "budget": 150e6, gross: 449e6, "opening weekend": 65e6, "release date": "05/06/2011", "cinemas": 3955}, 
+
+{"title": "Thor II: The Dark World", "franchise": "Thor", "budget": 150e6, gross: 644e6, "opening weekend": 85e6, "release date": "08/11/2013", "cinemas": 3841}, 
+
+{"title": "Thor 3: Ragnarock", "franchise": "Thor", "budget": 180e6, gross: 846e6, "opening weekend": 122e6, "release date": "03/11/2017", "cinemas": 4080}, 
+
+{"title": "Ant Man", "franchise": "Ant Man", "budget": 130e6, gross: 518e6, "opening weekend": 57e6, "release date": "17/07/2015", "cinemas": 3856}, 
+
+{"title": "Ant man II", "franchise": "Ant-Man", "budget": 130e6, gross: 623e6, "opening weekend": 75e6, "release date": "06/07/2018", "cinemas":  4206}, 
+
+{"title": "The Avengers", "franchise": "Avengers", "budget": 225e6, gross: 1517e6, "opening weekend": 207e6, "release date": "04/05/2012", "cinemas": 4349}, 
+
+{"title": "Avengers II: Age of Ultron", "franchise": "Avengers", "budget": 330e6, gross: 1403e6, "opening weekend": 191e6, "release date": "01/05/2015", "cinemas": 4276}, 
+
+{"title": "Avengers 3: Infinity War", "franchise": "Avengers", "budget": 300e6, gross: 2048e6, "opening weekend": 257e6, "release date": "27/04/2018", "cinemas": 4474}, 
+
+{"title": "Avengers IV: Endgame", "franchise": "Avengers", "budget": 356e6, gross: 2713e6, "opening weekend": 357e6, "release date": "26/04/2019", "cinemas": 4662}, 
+
+{"title": "Guardians of The Galaxy", "franchise": "Guardians of the Galaxy", "budget": 170e6, gross : 770e6, "opening weekend": 94e6, "release date": "01/08/2014", "cinemas": 4088}, 
+
+{"title": "Guardians of The Galaxy 2", "franchise": "Guardians of the Galaxy", "budget": 200e6, gross: 862e6, "opening weekend": 146e6, "release date": "05/05/2017", "cinemas": 4347}, 
     ];
