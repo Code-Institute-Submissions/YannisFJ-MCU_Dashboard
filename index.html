@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>MCU Dashboard</title>
     <style type="text/css">
-        div {
+        div, h3 {
             clear: left;
         }
     </style>
@@ -23,12 +23,16 @@
 <body>
     
 <div>
-    <h3> all MCU movies</h3>
-    <div id="movie"></div>
+    <h2> Worldwide Gross </h2>
+    <h3>Worldwide Gross per Marvel Franchise!</h3>
+    <div id="gross_movie"></div>
+    
+    <h3>Worldwide Gross per individual Marvel movie!</h3>
+    <div id="gross_title"></div>
 </div>
 
 <div>
-    <h3> budget for MCU movies</h3>
+    <h2> budget for MCU movies</h2>
     <div id="budgetpertitle"></div>
 </div>
     
@@ -77,9 +81,13 @@
     var ndx = crossfilter(franchiseData);
     
     var franchise_dim = ndx.dimension(dc.pluck('franchise'));
-    var infinitywargross = franchise_dim.group().reduceSum(dc.pluck('title'));
-    
     var total_gross_per_franchise = franchise_dim.group().reduceSum(dc.pluck("gross"));
+    
+    var title_dim = ndx.dimension(dc.pluck('title'));
+    var budget_per_title = title_dim.group().reduceSum(dc.pluck("budget"));
+    var gross_per_title = title_dim.group().reduceSum(dc.pluck("gross"));
+    
+    var infinitywargross = franchise_dim.group().reduceSum(dc.pluck('title'));
     
     // var infinitywar"gross" = franchise_dim.group().reduceSum(function (d) {
     //     if (d.title === "Avengers III: Infinity War") {
@@ -121,7 +129,7 @@
     //     }
     // })
         
-        dc.barChart("#movie")
+        dc.barChart("#gross_movie")
             .width(800)
             .height(500)
             .margins({top: 10, right: 50, bottom: 30, left: 100})
@@ -140,8 +148,12 @@
             .yAxisLabel("Worldwide gross ($)")
             .yAxis().ticks(7);
         
-        var title_dim = ndx.dimension(dc.pluck('title'));
-        var budget_per_title = title_dim.group().reduceSum(dc.pluck("budget"));
+        dc.pieChart("#gross_title")
+            .height(300)
+            .radius(1500)
+            .dimension(title_dim)
+            .group(gross_per_title)
+            .transitionDuration(1500);
         
         dc.pieChart("#budgetpertitle")
             .height(300)
