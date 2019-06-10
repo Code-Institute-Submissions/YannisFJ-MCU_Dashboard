@@ -293,9 +293,41 @@
                 }
             });
             
+            var avengersFranchiseGross = date_dim.group().reduceSum(function (d){
+                if (d.franchise === "Avengers") {
+                    return +d.gross;
+                } else {
+                    return 0;
+                }
+            });
+            
+            var thorFranchiseGross = date_dim.group().reduceSum(function (d){
+                if (d.franchise === "Thor") {
+                    return +d.gross;
+                } else {
+                    return 0;
+                }
+            });
+            
+            var antManFranchiseGross = date_dim.group().reduceSum(function (d){
+                if (d.franchise === "Ant-Man") {
+                    return +d.gross;
+                } else {
+                    return 0;
+                }
+            });
+            
+            var guardiansFranchiseGross = date_dim.group().reduceSum(function (d){
+                if (d.franchise === "Guardians of the Galaxy") {
+                    return +d.gross;
+                } else {
+                    return 0;
+                }
+            });
+            
             var compositeChart = dc.compositeChart('#gross_composite_chart');
             compositeChart
-                .width(990)
+                .width(1000)
                 .height(200)
                 .dimension(date_dim)
                 .x(d3.time.scale().domain([min_date, max_date]))
@@ -308,7 +340,19 @@
                         .group(ironManFranchiseGross, "Iron Man"),
                     dc.lineChart(compositeChart)
                         .colors('blue')
-                        .group(captainAmericaFranchiseGross, "Captain America")
+                        .group(captainAmericaFranchiseGross, "Captain America"),
+                    dc.lineChart(compositeChart)
+                        .colors('green')
+                        .group(avengersFranchiseGross, "Avengers"),
+                    dc.lineChart(compositeChart)
+                        .colors('orange')
+                        .group(thorFranchiseGross, "thor"),
+                    dc.lineChart(compositeChart)
+                        .colors('black')
+                        .group(antManFranchiseGross, "Ant-Man"),
+                    dc.lineChart(compositeChart)
+                        .colors('purple')
+                        .group(guardiansFranchiseGross, "Guardians of the Galaxy")
                     ])
                     .brushOn(false);
    
