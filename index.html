@@ -43,6 +43,11 @@
     <div id="scatter"></div>
 </div>
 
+<div>
+    <h3>Opening Weekend</h3>
+    <div id="line_chart"></div>
+</div>
+
     <script>
    /* queue()
        .defer(d3.json, "data/movie_data.json)
@@ -116,7 +121,7 @@
     
     /* opening */
     
-    var opening_weekend_gross_per_month = date_dim.group().reduceSum(dc.pluck("opening"))
+    var opening_weekend = date_dim.group().reduceSum(dc.pluck("opening"));
     
     var infinitywargross = franchise_dim.group().reduceSum(dc.pluck('title'));
     
@@ -225,6 +230,19 @@
             .dimension(budget_dim)
             .group(budget_group)
             .margins({top: 10, right: 50, bottom: 75, left: 75});
+            
+        dc.lineChart("#line_chart")
+            .width(1000)
+            .height(300)
+            .margins({top: 10, right: 50, bottom: 75, left: 75})
+            .dimension(date_dim)
+            .group(opening_weekend)
+            .transitionDuration(500)
+            .x(d3.time.scale().domain([min_date, max_date]))
+            .xUnits(dc.units.ordinal)
+            .xAxisLabel("Month")
+            .yAxisLabel("Cinemas Released In)")
+            .yAxis().ticks(7);
    
     dc.renderAll();
     
