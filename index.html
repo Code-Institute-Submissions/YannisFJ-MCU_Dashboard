@@ -127,37 +127,37 @@
     
     /* for franchise related graphs */
     var franchise_dim = ndx.dimension(dc.pluck('franchise'));
+    
     var total_gross_per_franchise = franchise_dim.group().reduceSum(dc.pluck("gross"));
     var cinemas_per_franchise = franchise_dim.group().reduceSum(dc.pluck("cinemas"));
     var budget_per_franchise = franchise_dim.group().reduceSum(dc.pluck("budget"));
     
     /* for title related graphs */
     var title_dim = ndx.dimension(dc.pluck('title'));
+    
     var gross_per_title = title_dim.group().reduceSum(dc.pluck("gross"));
     var budget_per_title = title_dim.group().reduceSum(dc.pluck("budget"));
     
     /* opening */
-    
     var weekend_gross = date_dim.group().reduceSum(dc.pluck('opening'));
    
-   
-    // var infinitywargross = franchise_dim.group().reduceSum(dc.pluck('title'));
+   /*budget stacked graph*/
     
-    // var infinitywar"gross" = franchise_dim.group().reduceSum(function (d) {
-    //     if (d.title === "Avengers III: Infinity War") {
-    //         return +d."gross";
-    //     } else {
-    //         return 0;
-    //     }
-    // })
+    var infinityWarBudget = franchise_dim.group().reduceSum(function (d) {
+             if (d.title === "Avengers III: Infinity War") {
+                 return +d.budget;
+             } else {
+                 return 0;
+             }
+         });
     
-    // var endgame"gross" = franchise_dim.group().reduceSum(function (d) {
-    //     if (d.title === "Avengers IV: Endgame") {
-    //         return +d."gross";
-    //     } else {
-    //         return 0;
-    //     }
-    // })
+    var endgameBudget = franchise_dim.group().reduceSum(function (d) {
+          if (d.title === "Avengers IV: Endgame") {
+                 return +d.budget;
+             } else {
+                 return 0;
+             }
+         });
     
     // var avengers"gross" = franchise_dim.group().reduceSum(function (d) {
     //     if (d.title === "The Avengers") {
