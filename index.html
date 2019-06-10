@@ -117,6 +117,12 @@
     });
     var budget_group = budget_dim.group();
     
+    /*scatter graph 2*/
+    var gross_progress_dim = ndx.dimension(function (d) {
+        return [d.date, d.gross];
+    });
+    var gross_progress_group = gross_progress_dim.group();
+    
     /* for franchise related graphs */
     var franchise_dim = ndx.dimension(dc.pluck('franchise'));
     var total_gross_per_franchise = franchise_dim.group().reduceSum(dc.pluck("gross"));
@@ -241,7 +247,7 @@
             .group(budget_group)
             .margins({top: 10, right: 50, bottom: 75, left: 75});
         
-        var gross_chart = dc.scatterPlot("#scatter");
+        var gross_chart = dc.scatterPlot("#gross_scatter_chart");
         gross_chart 
             .width(800)
             .height(500)
@@ -250,9 +256,9 @@
             .symbolSize(8)
             .clipPadding(10)
             .xAxisLabel("Release Date of MCU Movies")
-            .yAxisLabel("Worldwide gross")
-            .dimension(budget_dim)
-            .group(budget_group)
+            .yAxisLabel("Worldwide gross (£ billions)")
+            .dimension(gross_progress_dim)
+            .group(gross_progress_group)
             .margins({top: 10, right: 50, bottom: 75, left: 75});
             
         /*dc.lineChart("#line_chart")
