@@ -51,6 +51,9 @@
 <div>
     <h3>Opening Weekend Grosses</h3>
     <div id="weekend"></div>
+    
+    <h3>Worldwide Gross per Marvel Franchise!</h3>
+    <div id="gross_composite_chart"></div>
 </div>
 
 
@@ -261,7 +264,7 @@
             .margins({top: 10, right: 50, bottom: 75, left: 75});
             
         dc.lineChart("#weekend")
-            .width(1000)
+            .width(1100)
             .height(300)
             .margins({top: 10, right: 50, bottom: 30, left: 50})
             .dimension(date_dim)
@@ -271,6 +274,43 @@
             .xAxisLabel("Years")
             .yAxisLabel("Releases of MCU Movies")
             .yAxis().ticks(7);
+            
+            /*composite graph**/
+            var ironManFranchiseGross = date_dim.group().reduceSum(function (d){
+                if (d.franchise === "Iron Man") {
+                    return +d.gross;
+                } else {
+                    return 0;
+                }
+            });
+            
+            
+            var captainAmericaFranchiseGross = date_dim.group().reduceSum(function (d){
+                if (d.franchise === "Captain America") {
+                    return +d.gross;
+                } else {
+                    return 0;
+                }
+            });
+            
+            var compositeChart = dc.compositeChart('#gross_composite_chart');
+            compositeChart
+                .width(990)
+                .height(200)
+                .dimension(date_dim)
+                .x(d3.time.scale().domain([min_date, max_date]))
+                .yAxisLabel("gross")
+                .legend(dc.legend().x(80).y(20).itemHeight(13).gap(5))
+                .renderHorizontalGridLines(true)
+                .compose([
+                    dc.lineChart(compositeChart)
+                        .colors('red')
+                        .group(ironManFranchiseGross, "Iron Man"),
+                    dc.lineChart(compositeChart)
+                        .colors('blue')
+                        .group(captainAmericaFranchiseGross, "Captain America")
+                    ])
+                    .brushOn(false);
    
     dc.renderAll();
     
