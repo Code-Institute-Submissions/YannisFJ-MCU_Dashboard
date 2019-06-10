@@ -32,8 +32,13 @@
 </div>
 
 <div>
-    <h2> budget for MCU movies</h2>
+    <h2> Budget for MCU movies</h2>
     <div id="budgetpertitle"></div>
+</div>
+
+<div>
+    <h2>Opening Weekend Performance over time (all MCU franchise movies)</h2>
+    <div id="opening_weekend_graph"></div>
 </div>
     
     <script>
@@ -86,6 +91,20 @@
     var title_dim = ndx.dimension(dc.pluck('title'));
     var budget_per_title = title_dim.group().reduceSum(dc.pluck("budget"));
     var gross_per_title = title_dim.group().reduceSum(dc.pluck("gross"));
+    
+    /*
+    var parseDate = d3.time.format("%d/%m/%Y").parse;
+    
+    franchiseData.forEach(function (d) {
+        d.date = parseDate(d.date);
+    });
+    
+    
+    var date_dim = ndx.dimension(dc.pluck("date"));
+    var opening_gross_per_month = date_dim.group().reduceSum(dc.pluck("opening weekend"));
+    
+    var minDate = date_dim.bottom(1)[0].date;
+    var maxDate = date_dim.top(1)[0].date; */
     
     var infinitywargross = franchise_dim.group().reduceSum(dc.pluck('title'));
     
@@ -161,8 +180,18 @@
             .dimension(title_dim)
             .group(budget_per_title)
             .transitionDuration(1500);
-    
-    
+        
+        dc.lineChart("#opening_weekend_graph")
+        .width(1000)
+        .height(300)
+        .margins({top:10, right: 50, bottom: 30, left: 50})
+        .dimension(date_dim)
+        .group(opening_gross_per_month)
+        .transitionDuration(500)
+        .x(d3.time.scale().domain([minDate, maxDate]))
+        .xAxisLabel
+        .yAxis().ticks(4);
+            
     dc.renderAll();
     
     </script>
