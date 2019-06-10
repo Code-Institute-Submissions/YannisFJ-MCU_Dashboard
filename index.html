@@ -49,8 +49,8 @@
 </div>
 
 <div>
-    <h3>Opening Weekend</h3>
-    <div id="line_chart"></div>
+    <h3>Opening Weekend Grosses</h3>
+    <div id="weekend"></div>
 </div>
 
 
@@ -107,7 +107,6 @@
     
     var date_dim = ndx.dimension(dc.pluck('date'));
     
-    
     var min_date = date_dim.bottom(1)[0].date;
     var max_date = date_dim.top(1)[0].date;
     
@@ -136,7 +135,7 @@
     
     /* opening */
     
-    //var opening_gross = date.dim.group().reduceSum(dc.pluck('opening'));
+    var weekend_gross = date_dim.group().reduceSum(dc.pluck('opening'));
    
    
     // var infinitywargross = franchise_dim.group().reduceSum(dc.pluck('title'));
@@ -227,8 +226,8 @@
             .transitionDuration(1500);
         
         dc.pieChart("#budgetpertitle")
-            .height(300)
-            .radius(1500)
+            .height(500)
+            .radius(2000)
             .dimension(title_dim)
             .group(budget_per_title)
             .transitionDuration(1500);
@@ -261,17 +260,17 @@
             .group(gross_progress_group)
             .margins({top: 10, right: 50, bottom: 75, left: 75});
             
-        /*dc.lineChart("#line_chart")
+        dc.lineChart("#weekend")
             .width(1000)
             .height(300)
             .margins({top: 10, right: 50, bottom: 30, left: 50})
             .dimension(date_dim)
-            .group(opening_gross)
+            .group(weekend_gross)
             .transitionDuration(500)
             .x(d3.time.scale().domain([min_date, max_date]))
-            .xUnits(dc.units.ordinal)
-            .xAxisLabel("Month")
-            .yAxis().ticks(7);*/
+            .xAxisLabel("Years")
+            .yAxisLabel("Releases of MCU Movies")
+            .yAxis().ticks(7);
    
     dc.renderAll();
     
