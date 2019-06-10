@@ -23,29 +23,32 @@
 <body>
     
 <div>
-    <h2> Worldwide Gross </h2>
+  
     <h3>Worldwide Gross per Marvel Franchise!</h3>
     <div id="gross_movie"></div>
     
+    <h3> Budget for MCU movies</h3>
+    <div id="budgetperfranchise"></div>
+    
+    <h3>Cinemas released in per franchise</h3>
+    <div id="cinemas_per_franchise"></div>
+    
+    
+    
+    
+    
+</div>
+
+<div>
     <h3>Worldwide Gross per individual Marvel movie!</h3>
     <div id="gross_title"></div>
 </div>
 
-<div>
-    <h2> Budget for MCU movies</h2>
-    <div id="budgetpertitle"></div>
-</div>
-
-<div>
-    <h2>Opening Weekend Performance over time (all MCU franchise movies)</h2>
-    <div id="opening_weekend_graph"></div>
-</div>
-    
     <script>
    /* queue()
-       .defer(d3.csv, "assets/data/Data.csv")
-       .await(getMonth);
-    https://github.com/elenasacristan/HolidaysYa */
+       .defer(d3.json, "data/movie_data.json)
+       .await(makeGraphs);
+  */
     
     var franchiseData = [
 {"title": "Iron Man", "franchise": "Iron Man", "budget": 186e6, "gross": 585e6, "opening weekend": 102e6, "release date": "02/05/2008", "cinemas": 4154},
@@ -87,24 +90,12 @@
     
     var franchise_dim = ndx.dimension(dc.pluck('franchise'));
     var total_gross_per_franchise = franchise_dim.group().reduceSum(dc.pluck("gross"));
+    var cinemas_per_franchise = franchise_dim.group().reduceSum(dc.pluck("cinemas"));
+    var budget_per_franchise = franchise_dim.group().reduceSum(dc.pluck("budget"));
     
     var title_dim = ndx.dimension(dc.pluck('title'));
-    var budget_per_title = title_dim.group().reduceSum(dc.pluck("budget"));
+    
     var gross_per_title = title_dim.group().reduceSum(dc.pluck("gross"));
-    
-    /*
-    var parseDate = d3.time.format("%d/%m/%Y").parse;
-    
-    franchiseData.forEach(function (d) {
-        d.date = parseDate(d.date);
-    });
-    
-    
-    var date_dim = ndx.dimension(dc.pluck("date"));
-    var opening_gross_per_month = date_dim.group().reduceSum(dc.pluck("opening weekend"));
-    
-    var minDate = date_dim.bottom(1)[0].date;
-    var maxDate = date_dim.top(1)[0].date; */
     
     var infinitywargross = franchise_dim.group().reduceSum(dc.pluck('title'));
     
@@ -166,6 +157,25 @@
             .xAxisLabel("MCU Franchises (2+ movies)")
             .yAxisLabel("Worldwide gross ($)")
             .yAxis().ticks(7);
+            
+            dc.barChart("#cinemas_per_franchise")
+            .width(800)
+            .height(500)
+            .margins({top: 10, right: 50, bottom: 30, left: 100})
+            .dimension(franchise_dim)
+            .group(cinemas_per_franchise)
+            // .stack(infinitywargross, "Infinity War")
+            // .stack(infinitywar"gross", "Infinity War")
+            // .stack(endgame"gross", "endgame")
+            // .stack(avengers"gross", "avengers")
+            // .stack(ultron"gross", "Avengers II: Age of Ultron")
+            // .stack(ant_man"gross", "ant man")
+            .transitionDuration(500)
+            .x(d3.scale.ordinal())
+            .xUnits(dc.units.ordinal)
+            .xAxisLabel("MCU Franchises (2+ movies)")
+            .yAxisLabel("Cinemas Released In)")
+            .yAxis().ticks(4);
         
         dc.pieChart("#gross_title")
             .height(300)
@@ -174,24 +184,13 @@
             .group(gross_per_title)
             .transitionDuration(1500);
         
-        dc.pieChart("#budgetpertitle")
+        dc.pieChart("#budgetperfranchise")
             .height(300)
             .radius(1500)
-            .dimension(title_dim)
-            .group(budget_per_title)
+            .dimension(franchise_dim)
+            .group(budget_per_franchise)
             .transitionDuration(1500);
         
-        dc.lineChart("#opening_weekend_graph")
-        .width(1000)
-        .height(300)
-        .margins({top:10, right: 50, bottom: 30, left: 50})
-        .dimension(date_dim)
-        .group(opening_gross_per_month)
-        .transitionDuration(500)
-        .x(d3.time.scale().domain([minDate, maxDate]))
-        .xAxisLabel
-        .yAxis().ticks(4);
-            
     dc.renderAll();
     
     </script>
