@@ -28,9 +28,13 @@
         </div>
     </nav>
     
+    <div class="row">
+            <div class="col-xs-12 col-sm-12">
+              <div id="franchise-selector"></div>
+            </div>
+          </div>
+    
     <main>
-        
-        
         <section class="section">
             <div class="container">
                 <div class="row">
@@ -77,11 +81,16 @@
         
         <section class="section">
             <div class="container">
+                
                 <div class="row">
                     <div class="col-xs-12 col-sm-12 text-center">
                         <h1> Worldwide Gross per Franchise</h1>
                     </div>
+                </div>
+                
+                <div class="row">
                     <div class="col-xs-12 col-sm-12 text-center" id="gross_movie"></div>
+                    <div class="col-xs-12 col-sm-12 text-center"><p class="section-paragraph">Worldwide Gross per Title </p></div>
                     <div class="col-xs-12 col-sm-6 text-center" id="gross_composite_chart"></div>
                     <div class="col-xs-12 col-sm-6 text-center" id="gross_title"></div>
                 </div>
@@ -160,6 +169,15 @@
         d.date = parseDate(d.date);
     });
     
+    /* select menu*/
+    var dim = ndx.dimension(dc.pluck('franchise'));
+    var group = dim.group();
+        
+    dc.selectMenu("#franchise-selector")
+        .dimension(dim)
+        .group(group);
+    
+    /*dates*/
     var date_dim = ndx.dimension(dc.pluck('date'));
     
     var min_date = date_dim.bottom(1)[0].date;
@@ -405,10 +423,13 @@
                     ])
                     .brushOn(false);
    
-    
+            
 
     dc.renderAll();
+    
+    
     </script>
-
+    
+   
 </body>
 </html>

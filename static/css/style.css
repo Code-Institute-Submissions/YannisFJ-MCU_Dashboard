@@ -2,3 +2,8 @@
     border-bottom: 1px solid grey;
     padding: 30px 0;
 }
+
+.section-paragraph {
+	line-height: 1.2;
+}
+
