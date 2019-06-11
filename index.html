@@ -29,20 +29,7 @@
     </nav>
     
     <main>
-        <section class="section">
-            <div class="container">
-                <div class="row">
-                    <div class="col-xs-12 col-sm-12 text-center">
-                        <h1> Worldwide Gross per Franchise</h1>
-                    </div>
-                    <div class="col-xs-12 col-sm-6 text-center" id="gross_movie"></div>
-                    <div class="col-xs-12 col-sm-6 text-center" id="gross_scatter_chart"></div>
-                    <div class="col-xs-12 col-sm-6 text-center" id="gross_composite_chart"></div>
-                    <div class="col-xs-12 col-sm-6 text-center" id="gross_title"></div>
-                    
-                </div>
-            </div>
-        </section>
+        
         
         <section class="section">
             <div class="container">
@@ -81,9 +68,9 @@
             <div class="container">
                 <div class="row">
                     <div class="col-xs-12 col-sm-12 text-center">
-                        <h1> Cinemas Released in per Franchise </h1>
+                        <h1> Opening Weekend Gross </h1>
                     </div>
-                     <div class="col-xs-12 col-sm-12 text-center" id="cinemas_per_franchise"></div>
+                     <div class="col-xs-12 col-sm-12 text-center" id="weekend"></div>
                 </div>
             </div>
         </section>
@@ -92,9 +79,22 @@
             <div class="container">
                 <div class="row">
                     <div class="col-xs-12 col-sm-12 text-center">
-                        <h1> Opening Weekend Gross </h1>
+                        <h1> Worldwide Gross per Franchise</h1>
                     </div>
-                     <div class="col-xs-12 col-sm-12 text-center" id="weekend"></div>
+                    <div class="col-xs-12 col-sm-12 text-center" id="gross_movie"></div>
+                    <div class="col-xs-12 col-sm-6 text-center" id="gross_composite_chart"></div>
+                    <div class="col-xs-12 col-sm-6 text-center" id="gross_title"></div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 text-center">
+                        <h1> Cinemas per Franchise </h1>
+                    </div>
+                     <div class="col-xs-12 col-sm-12 text-center" id="cinemas_per_franchise"></div>
                 </div>
             </div>
         </section>
@@ -241,19 +241,20 @@
     stackedChart
         .width(1200)
         .height(400)
-        .margins({top: 10, right: 50, bottom: 70, left: 80})
+        .margins({top: 50, right: 50, bottom: 50, left: 80})
         .dimension(title_dim)
         .group(budget_per_title, "Movie Opening Weekend Gross")
         .stack(movieBudget, "Movie Budget")
         .x(d3.scale.ordinal())
         .xUnits(dc.units.ordinal)
+        .yAxisLabel("Opening Weekend Gross ($)")
         .legend(dc.legend().x(420).y(0).itemHeight(15).gap(5));
     
     
         dc.barChart("#gross_movie")
             .width(750)
             .height(300)
-            .margins({top: 10, right: 50, bottom: 30, left: 100})
+            .margins({top: 50, right: 50, bottom: 50, left: 100})
             .dimension(franchise_dim)
             .group(total_gross_per_franchise)
             .transitionDuration(500)
@@ -264,9 +265,9 @@
             .yAxis().ticks(7);
             
             dc.barChart("#cinemas_per_franchise")
-            .width(700)
+            .width(800)
             .height(400)
-            .margins({top: 10, right: 50, bottom: 30, left: 100})
+            .margins({top: 10, right: 50, bottom: 50, left: 60})
             .dimension(franchise_dim)
             .group(cinemas_per_franchise)
             // .stack(infinitywargross, "Infinity War")
@@ -279,7 +280,7 @@
             .x(d3.scale.ordinal())
             .xUnits(dc.units.ordinal)
             .xAxisLabel("MCU Franchises (2+ movies)")
-            .yAxisLabel("Cinemas Released In)")
+            .yAxisLabel("Number of Cinemas")
             .yAxis().ticks(4);
         
         dc.pieChart("#gross_title")
@@ -305,34 +306,21 @@
             .symbolSize(8)
             .clipPadding(10)
             .xAxisLabel("Release Date of MCU Movies")
-            .yAxisLabel("Budget Spent")
+            .yAxisLabel("Budget Spent (USD $)")
             .dimension(budget_dim)
             .group(budget_group)
-            .margins({top: 10, right: 50, bottom: 75, left: 75});
-        
-        var gross_chart = dc.scatterPlot("#gross_scatter_chart");
-        gross_chart 
-            .width(500)
-            .height(300)
-            .x(d3.time.scale().domain([min_date, max_date]))
-            .brushOn(false)
-            .symbolSize(8)
-            .clipPadding(10)
-            .yAxisLabel("Worldwide gross (£ billions)")
-            .dimension(gross_progress_dim)
-            .group(gross_progress_group)
-            .margins({top: 10, right: 50, bottom: 75, left: 75});
+            .margins({top: 10, right: 50, bottom: 75, left: 105});
             
         dc.lineChart("#weekend")
             .width(1100)
             .height(400)
-            .margins({top: 10, right: 50, bottom: 30, left: 50})
+            .margins({top: 10, right: 50, bottom: 40, left: 110})
             .dimension(date_dim)
             .group(weekend_gross)
             .transitionDuration(500)
             .x(d3.time.scale().domain([min_date, max_date]))
-            .xAxisLabel("Years")
-            .yAxisLabel("Releases of MCU Movies")
+            .xAxisLabel("MCU Movie Release Dates")
+            .yAxisLabel("Opening Weekend Gross (USD $)")
             .yAxis().ticks(7);
             
             /*composite graph**/
@@ -387,12 +375,13 @@
             
             var compositeChart = dc.compositeChart('#gross_composite_chart');
             compositeChart
-                .width(700)
+                .width(650)
                 .height(300)
                 .dimension(date_dim)
+                .margins({top: 10, right: 50, bottom: 40, left: 110})
                 .x(d3.time.scale().domain([min_date, max_date]))
-                .yAxisLabel("gross")
-                .legend(dc.legend().x(80).y(20).itemHeight(13).gap(5))
+                .yAxisLabel("Worldwide Gross (USD $)")
+                .legend(dc.legend().x(180).y(20).itemHeight(13).gap(5))
                 .renderHorizontalGridLines(true)
                 .compose([
                     dc.lineChart(compositeChart)
