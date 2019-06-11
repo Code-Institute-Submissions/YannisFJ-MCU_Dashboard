@@ -20,57 +20,100 @@
 
 <body>
 
-<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-      <div class="container-fluid">
-        <div class="navbar-header">
-          <a class="navbar-brand" href="#">Marvel Movie Data Dashboard</a>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+          <div class="container-fluid">
+            <div class="navbar-header">
+              <a class="navbar-brand" href="#">Marvel Movie Data Dashboard</a>
+            </div>
         </div>
-    </div>
-</nav>
+    </nav>
     
-<div class="container">
-    
-    <div class="row">
-        <h1> Marvel Movie Dashboard </h1>
-    </div>
-    
-    <div class="row">
-        <!--<h3>Worldwide Gross per Marvel Franchise!</h3>-->
-        <div class="col-md-10" id="gross_movie"></div>
-        <!--<h3>Worldwide Gross per individual Marvel movie!</h3>-->
-        <div class="col-md-10" id="gross_title"></div>
-        <!--<h3>Gross over time</h3>-->
-        <div class="col-md-10" id="gross_scatter_chart"></div>
-    </div>
-    
-    
-    <div>
-        <h3>Budget and opening weekend gross!</h3>
-        <div id="stacked-chart"></div>
+    <main>
+        <section class="section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 text-center">
+                        <h1> Worldwide Gross per Franchise</h1>
+                    </div>
+                    <div class="col-xs-12 col-sm-12 text-center" id="gross_movie"></div>
+                </div>
+            </div>
+        </section>
         
-        <h3>Cinemas released in per franchise</h3>
-        <div id="cinemas_per_franchise"></div>
-      
+        <section class="section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 text-center">
+                        <h1> Opening Weekend Gross vs Movie Budget</h1>
+                    </div>
+                     <div class="col-xs-12 col-sm-12 text-center" id="stacked-chart"></div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 text-center">
+                        <h1> Worldwide Gross Per Title </h1>
+                    </div>
+                     <div class="col-xs-12 col-sm-12 text-center" id="gross_title"></div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 text-center">
+                        <h1> Movie Budget Growth </h1>
+                    </div>
+                     <div class="col-xs-12 col-sm-12 text-center" id="scatter"></div>
+                </div>
+            </div>
+        </section>
         
         
-        <h3> Budget for MCU movies</h3>
-        <div id="budgetpertitle"></div>
-    </div>
+        
+    </main>
+    
 
-    <div>
-        <div id="scatter"></div>
-    </div>
-    
-    <div>
-        <h3>Opening Weekend Grosses</h3>
-        <div id="weekend"></div>
+        <div class="row">
+            <!--<h3>Worldwide Gross per Marvel Franchise!
+            <div class="col-md-10" id="gross_movie"></div>
+            <h3>Worldwide Gross per individual Marvel movie!
+            <div class="col-md-10" id="gross_title"></div>
+           <h3>Gross over time</h3>-->
+            <div class="col-md-10" id="gross_scatter_chart"></div>
+            
+        </div>
+
         
-        <h3>Worldwide Gross per Marvel Franchise!</h3>
-        <div id="gross_composite_chart"></div>
+        <div>
+            <h3>Budget and opening weekend gross!</h3>
+           
+            
+            <h3>Cinemas released in per franchise</h3>
+            <div id="cinemas_per_franchise"></div>
+          
+            
+            
+            <h3> Budget for MCU movies</h3>
+            <div id="budgetpertitle"></div>
+        </div>
+    
+        
+        
+        <div>
+            <h3>Opening Weekend Grosses</h3>
+            <div id="weekend"></div>
+            
+            <h3>Worldwide Gross per Marvel Franchise!</h3>
+            <div id="gross_composite_chart"></div>
+        </div>
+        
+        
     </div>
-    
-    
-</div>
 
 
 
@@ -199,6 +242,8 @@
              }
          });
     
+    /*CHARTS*/
+    
     var stackedChart = dc.barChart("#stacked-chart");
     stackedChart
         .width(600)
@@ -218,12 +263,6 @@
             .margins({top: 10, right: 50, bottom: 30, left: 100})
             .dimension(franchise_dim)
             .group(total_gross_per_franchise)
-            // .stack(infinitywargross, "Infinity War")
-            // .stack(infinitywar"gross", "Infinity War")
-            // .stack(endgame"gross", "endgame")
-            // .stack(avengers"gross", "avengers")
-            // .stack(ultron"gross", "Avengers II: Age of Ultron")
-            // .stack(ant_man"gross", "ant man")
             .transitionDuration(500)
             .x(d3.scale.ordinal())
             .xUnits(dc.units.ordinal)
