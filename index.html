@@ -22,6 +22,12 @@
 <body>
     
 <div>
+    
+    <h3>Budget and opening weekend gross!</h3>
+    <div id="stacked-chart"></div>
+    
+    <h3>Cinemas released in per franchise</h3>
+    <div id="cinemas_per_franchise"></div>
   
     <h3>Worldwide Gross per Marvel Franchise!</h3>
     <div id="gross_movie"></div>
@@ -29,8 +35,7 @@
     <h3> Budget for MCU movies</h3>
     <div id="budgetpertitle"></div>
     
-    <h3>Cinemas released in per franchise</h3>
-    <div id="cinemas_per_franchise"></div>
+    
 
 </div>
 
@@ -141,24 +146,6 @@
     /* opening */
     var weekend_gross = date_dim.group().reduceSum(dc.pluck('opening'));
    
-   /*budget stacked graph*/
-    
-    var infinityWarBudget = franchise_dim.group().reduceSum(function (d) {
-             if (d.title === "Avengers III: Infinity War") {
-                 return +d.budget;
-             } else {
-                 return 0;
-             }
-         });
-    
-    var endgameBudget = franchise_dim.group().reduceSum(function (d) {
-          if (d.title === "Avengers IV: Endgame") {
-                 return +d.budget;
-             } else {
-                 return 0;
-             }
-         });
-    
     // var avengers"gross" = franchise_dim.group().reduceSum(function (d) {
     //     if (d.title === "The Avengers") {
     //         return +d."gross";
@@ -182,7 +169,8 @@
     //         return 0;
     //     }
     // })
-        
+    
+    
         dc.barChart("#gross_movie")
             .width(800)
             .height(500)
@@ -356,8 +344,40 @@
                     ])
                     .brushOn(false);
    
-    dc.renderAll();
+    /*budget stacked graph*/
     
+    var infinityWarBudget = title_dim.group().reduceSum(function (d) {
+             if (d.title === "Avengers III: Infinity War") {
+                 return +d.budget;
+             } else {
+                 return 0;
+             }
+         });
+    
+    var endgameBudget = title_dim.group().reduceSum(function (d) {
+          if (d.title === "Avengers IV: Endgame") {
+                 return +d.budget;
+             } else if (d.title === "The Avengers") {
+                 return +d.budget;
+             } else {
+                 return 0;
+             }
+         });
+    
+    var stackedChart = dc.barChart("#stacked-chart");
+    stackedChart
+        .width(800)
+        .height(800)
+        .margins({top: 10, right: 50, bottom: 30, left: 100})
+        .dimension(title_dim)
+        .group(budget_per_title)
+        .stack(infinityWarBudget, "Infinity War")
+        .stack(endgameBudget, "Infinity War")
+        .x(d3.scale.ordinal())
+        .xUnits(dc.units.ordinal)
+        .legend(dc.legend().x(420).y(0).itemHeight(15).gap(5));
+
+    dc.renderAll();
     </script>
 
 </body>
