@@ -36,6 +36,7 @@
                         <h1> Worldwide Gross per Franchise</h1>
                     </div>
                     <div class="col-xs-12 col-sm-12 text-center" id="gross_movie"></div>
+                    <div class="col-xs-12 col-sm-12 text-center" id="gross_composite_chart"></div>
                 </div>
             </div>
         </section>
@@ -73,34 +74,44 @@
             </div>
         </section>
         
+        <section class="section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 text-center">
+                        <h1> Budget per Individual Movie </h1>
+                    </div>
+                     <div class="col-xs-12 col-sm-12 text-center" id="budgetpertitle"></div>
+                </div>
+            </div>
+        </section>
         
+        <section class="section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 text-center">
+                        <h1> Cinemas Released in per Franchise </h1>
+                    </div>
+                     <div class="col-xs-12 col-sm-12 text-center" id="cinemas_per_franchise"></div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 text-center">
+                        <h1> Cinemas Released in per Franchise </h1>
+                    </div>
+                     <div class="col-xs-12 col-sm-12 text-center" id="gross_scatter_chart"></div>
+                </div>
+            </div>
+        </section>
         
     </main>
     
 
-        <div class="row">
-            <!--<h3>Worldwide Gross per Marvel Franchise!
-            <div class="col-md-10" id="gross_movie"></div>
-            <h3>Worldwide Gross per individual Marvel movie!
-            <div class="col-md-10" id="gross_title"></div>
-           <h3>Gross over time</h3>-->
-            <div class="col-md-10" id="gross_scatter_chart"></div>
-            
-        </div>
 
         
-        <div>
-            <h3>Budget and opening weekend gross!</h3>
-           
-            
-            <h3>Cinemas released in per franchise</h3>
-            <div id="cinemas_per_franchise"></div>
-          
-            
-            
-            <h3> Budget for MCU movies</h3>
-            <div id="budgetpertitle"></div>
-        </div>
     
         
         
@@ -109,7 +120,7 @@
             <div id="weekend"></div>
             
             <h3>Worldwide Gross per Marvel Franchise!</h3>
-            <div id="gross_composite_chart"></div>
+            
         </div>
         
         
@@ -395,7 +406,7 @@
             
             var compositeChart = dc.compositeChart('#gross_composite_chart');
             compositeChart
-                .width(1000)
+                .width(700)
                 .height(200)
                 .dimension(date_dim)
                 .x(d3.time.scale().domain([min_date, max_date]))
