@@ -90,7 +90,7 @@
 
 {"universe": "Marvel", "title": "Ant Man", "franchise": "Ant-Man", "budget": 130e6, "gross": 518e6, "opening": 57e6, "date": "17/07/2015", "cinemas": 3856}, 
 
-{"universe": "Marvel", "title": "Ant man II", "franchise": "Ant-Man", "budget": 130e6, "gross": 623e6, "opening": 75e6, "date": "06/07/2018", "cinemas":  4206}, 
+{"universe": "Marvel", "title": "Ant Man II", "franchise": "Ant-Man", "budget": 130e6, "gross": 623e6, "opening": 75e6, "date": "06/07/2018", "cinemas":  4206}, 
 
 {"universe": "Marvel", "title": "The Avengers", "franchise": "Avengers", "budget": 225e6, "gross": 1517e6, "opening": 207e6, "date": "04/05/2012", "cinemas": 4349}, 
 
@@ -146,29 +146,59 @@
     /* opening */
     var weekend_gross = date_dim.group().reduceSum(dc.pluck('opening'));
    
-    // var avengers"gross" = franchise_dim.group().reduceSum(function (d) {
-    //     if (d.title === "The Avengers") {
-    //         return +d."gross";
-    //     } else {
-    //         return 0;
-    //     }
-    // })
+    /*budget stacked graph*/
     
-    // var ultron"gross" = franchise_dim.group().reduceSum(function (d) {
-    //     if (d.title === "Avengers II: Age of Ultron") {
-    //         return +d."gross";
-    //     } else {
-    //         return 0;
-    //     }
-    // })
+    var movieBudget = title_dim.group().reduceSum(function (d) {
+          if (d.title === "Avengers IV: Endgame") {
+                 return +d.budget;
+             } else if (d.title === "The Avengers") {
+                 return +d.budget;
+             } else if (d.title === "Avengers III: Infinity War") {
+                 return +d.budget;
+             } else if (d.title === "Iron Man") {
+                 return +d.budget;
+             } else if (d.title === "Iron Man II") {
+                 return +d.budget;
+             } else if (d.title === "Iron Man III") {
+                 return +d.budget;
+             } else if (d.title === "Guardians of The Galaxy 2") {
+                 return +d.budget;
+             } else if (d.title === "Guardians of The Galaxy") {
+                 return +d.budget;
+             } else if (d.title === "Thor") {
+                 return +d.budget;
+             } else if (d.title === "Thor II: The Dark World") {
+                 return +d.budget;
+             } else if (d.title === "Thor III: Ragnarock") {
+                 return +d.budget;
+             } else if (d.title === "Captain America I: The First Avenger") {
+                 return +d.budget;
+             } else if (d.title === "Captain America II: The Winter Soldier") {
+                 return +d.budget;
+             } else if (d.title === "Captain America III: Civil War") {
+                 return +d.budget;
+             } else if (d.title === "Ant Man") {
+                 return +d.budget;
+             } else if (d.title === "Ant Man II") {
+                 return +d.budget;
+             } else if (d.title === "Avengers II: Age of Ultron") {
+                 return +d.budget;
+             } else {
+                 return 0;
+             }
+         });
     
-    // var ant_man"gross" = franchise_dim.group().reduceSum(function (d) {
-    //     if (d.title === "Ant Man") {
-    //         return +d."gross";
-    //     } else {
-    //         return 0;
-    //     }
-    // })
+    var stackedChart = dc.barChart("#stacked-chart");
+    stackedChart
+        .width(800)
+        .height(400)
+        .margins({top: 10, right: 50, bottom: 30, left: 100})
+        .dimension(title_dim)
+        .group(budget_per_title, "Movie Opening Weekend Gross")
+        .stack(movieBudget, "Movie Budget")
+        .x(d3.scale.ordinal())
+        .xUnits(dc.units.ordinal)
+        .legend(dc.legend().x(420).y(0).itemHeight(15).gap(5));
     
     
         dc.barChart("#gross_movie")
@@ -344,63 +374,7 @@
                     ])
                     .brushOn(false);
    
-    /*budget stacked graph*/
     
-    var infinityWarBudget = title_dim.group().reduceSum(function (d) {
-             if (d.title === "Avengers III: Infinity War") {
-                 return +d.budget;
-             } else {
-                 return 0;
-             }
-         });
-    
-    var movieBudget = title_dim.group().reduceSum(function (d) {
-          if (d.title === "Avengers IV: Endgame") {
-                 return +d.budget;
-             } else if (d.title === "The Avengers") {
-                 return +d.budget;
-             } else if (d.title === "Iron Man") {
-                 return +d.budget;
-             } else if (d.title === "Iron Man II") {
-                 return +d.budget;
-             } else if (d.title === "Iron Man III") {
-                 return +d.budget;
-             } else if (d.title === "Guardians of The Galaxy 2") {
-                 return +d.budget;
-             } else if (d.title === "Guardians of The Galaxy") {
-                 return +d.budget;
-             } else if (d.title === "Thor") {
-                 return +d.budget;
-             } else if (d.title === "Thor II") {
-                 return +d.budget;
-             } else if (d.title === "Thor III") {
-                 return +d.budget;
-             } else if (d.title === "The Avengers") {
-                 return +d.budget;
-             } else if (d.title === "The Avengers") {
-                 return +d.budget;
-             } else if (d.title === "The Avengers") {
-                 return +d.budget;
-             } else if (d.title === "The Avengers") {
-                 return +d.budget;
-             } else if (d.title === "The Avengers") {
-                 return +d.budget;
-             } else {
-                 return 0;
-             }
-         });
-    
-    var stackedChart = dc.barChart("#stacked-chart");
-    stackedChart
-        .width(800)
-        .height(400)
-        .margins({top: 10, right: 50, bottom: 30, left: 100})
-        .dimension(title_dim)
-        .group(budget_per_title, "Movie Opening Weekend Gross")
-        .stack(movieBudget, "Movie Budget")
-        .x(d3.scale.ordinal())
-        .xUnits(dc.units.ordinal)
-        .legend(dc.legend().x(420).y(0).itemHeight(15).gap(5));
 
     dc.renderAll();
     </script>
