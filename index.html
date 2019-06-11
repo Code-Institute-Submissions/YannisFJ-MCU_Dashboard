@@ -354,8 +354,34 @@
              }
          });
     
-    var endgameBudget = title_dim.group().reduceSum(function (d) {
+    var movieBudget = title_dim.group().reduceSum(function (d) {
           if (d.title === "Avengers IV: Endgame") {
+                 return +d.budget;
+             } else if (d.title === "The Avengers") {
+                 return +d.budget;
+             } else if (d.title === "Iron Man") {
+                 return +d.budget;
+             } else if (d.title === "Iron Man II") {
+                 return +d.budget;
+             } else if (d.title === "Iron Man III") {
+                 return +d.budget;
+             } else if (d.title === "Guardians of The Galaxy 2") {
+                 return +d.budget;
+             } else if (d.title === "Guardians of The Galaxy") {
+                 return +d.budget;
+             } else if (d.title === "Thor") {
+                 return +d.budget;
+             } else if (d.title === "Thor II") {
+                 return +d.budget;
+             } else if (d.title === "Thor III") {
+                 return +d.budget;
+             } else if (d.title === "The Avengers") {
+                 return +d.budget;
+             } else if (d.title === "The Avengers") {
+                 return +d.budget;
+             } else if (d.title === "The Avengers") {
+                 return +d.budget;
+             } else if (d.title === "The Avengers") {
                  return +d.budget;
              } else if (d.title === "The Avengers") {
                  return +d.budget;
@@ -367,12 +393,11 @@
     var stackedChart = dc.barChart("#stacked-chart");
     stackedChart
         .width(800)
-        .height(800)
+        .height(400)
         .margins({top: 10, right: 50, bottom: 30, left: 100})
         .dimension(title_dim)
-        .group(budget_per_title)
-        .stack(infinityWarBudget, "Infinity War")
-        .stack(endgameBudget, "Infinity War")
+        .group(budget_per_title, "Movie Opening Weekend Gross")
+        .stack(movieBudget, "Movie Budget")
         .x(d3.scale.ordinal())
         .xUnits(dc.units.ordinal)
         .legend(dc.legend().x(420).y(0).itemHeight(15).gap(5));
