@@ -57,6 +57,30 @@
             <div class="container">
                 <div class="row">
                     <div class="col-xs-12 col-sm-12 text-center">
+                        <h1> Opening Weekend Gross </h1>
+                    </div>
+                     <div class="col-xs-12 col-sm-12 text-center" id="weekend"></div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 text-center">
+                        <h1> Cinemas per Franchise </h1>
+                    </div>
+                     <div class="col-xs-12 col-sm-12 text-center" id="cinemas_per_franchise"></div>
+                </div>
+            </div>
+        </section>
+        
+        
+        
+        <section class="section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 text-center">
                         <h1> Opening Weekend Gross vs Movie Budget</h1>
                     </div>
                      <div class="col-xs-12 col-sm-12 text-center" id="stacked-chart"></div>
@@ -75,6 +99,8 @@
             </div>
         </section>
         
+        
+        
         <section class="section">
             <div class="container">
                 <div class="row">
@@ -86,16 +112,7 @@
             </div>
         </section>
         
-        <section class="section">
-            <div class="container">
-                <div class="row">
-                    <div class="col-xs-12 col-sm-12 text-center">
-                        <h1> Opening Weekend Gross </h1>
-                    </div>
-                     <div class="col-xs-12 col-sm-12 text-center" id="weekend"></div>
-                </div>
-            </div>
-        </section>
+        
         
         <section class="section">
             <div class="container">
@@ -112,16 +129,7 @@
             </div>
         </section>
         
-        <section class="section">
-            <div class="container">
-                <div class="row">
-                    <div class="col-xs-12 col-sm-12 text-center">
-                        <h1> Cinemas per Franchise </h1>
-                    </div>
-                     <div class="col-xs-12 col-sm-12 text-center" id="cinemas_per_franchise"></div>
-                </div>
-            </div>
-        </section>
+    
         
     </main>
     
@@ -414,7 +422,7 @@
                 .margins({top: 10, right: 50, bottom: 40, left: 110})
                 .x(d3.time.scale().domain([min_date, max_date]))
                 .yAxisLabel("Worldwide Gross (USD $)")
-                .legend(dc.legend().x(180).y(20).itemHeight(13).gap(5))
+                .legend(dc.legend().x(130).y(20).itemHeight(13).gap(5))
                 .renderHorizontalGridLines(true)
                 .compose([
                     dc.lineChart(compositeChart)
