@@ -11,6 +11,7 @@
         }
     </style>
     
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" type="text/css" />
     <link rel="stylesheet" href="static/css/dc.min.css" type="text/css" />
     
     <script type="text/javascript" src="static/js/d3.min.js"></script>
@@ -21,44 +22,46 @@
 
 <body>
     
-<div>
+<div class="container">
+        <div>
+        
+        <h3>Budget and opening weekend gross!</h3>
+        <div id="stacked-chart"></div>
+        
+        <h3>Cinemas released in per franchise</h3>
+        <div id="cinemas_per_franchise"></div>
+      
+        <h3>Worldwide Gross per Marvel Franchise!</h3>
+        <div id="gross_movie"></div>
+        
+        <h3> Budget for MCU movies</h3>
+        <div id="budgetpertitle"></div>
+        
+        
     
-    <h3>Budget and opening weekend gross!</h3>
-    <div id="stacked-chart"></div>
+    </div>
     
-    <h3>Cinemas released in per franchise</h3>
-    <div id="cinemas_per_franchise"></div>
-  
-    <h3>Worldwide Gross per Marvel Franchise!</h3>
-    <div id="gross_movie"></div>
+    <div>
+        <h3>Worldwide Gross per individual Marvel movie!</h3>
+        <div id="gross_title"></div>
+    </div>
     
-    <h3> Budget for MCU movies</h3>
-    <div id="budgetpertitle"></div>
+    <div>
+        <div id="scatter"></div>
+    </div>
     
+    <div>
+        <h3>Gross over time</h3>
+        <div id="gross_scatter_chart"></div>
+    </div>
     
-
-</div>
-
-<div>
-    <h3>Worldwide Gross per individual Marvel movie!</h3>
-    <div id="gross_title"></div>
-</div>
-
-<div>
-    <div id="scatter"></div>
-</div>
-
-<div>
-    <h3>Gross over time</h3>
-    <div id="gross_scatter_chart"></div>
-</div>
-
-<div>
-    <h3>Opening Weekend Grosses</h3>
-    <div id="weekend"></div>
-    
-    <h3>Worldwide Gross per Marvel Franchise!</h3>
-    <div id="gross_composite_chart"></div>
+    <div>
+        <h3>Opening Weekend Grosses</h3>
+        <div id="weekend"></div>
+        
+        <h3>Worldwide Gross per Marvel Franchise!</h3>
+        <div id="gross_composite_chart"></div>
+    </div>
 </div>
 
 
