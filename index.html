@@ -191,13 +191,13 @@
     
     var ndx = crossfilter(franchiseData);
     
-    /* date formatting */
+    /*date formatting*/
     var parseDate = d3.time.format("%d/%m/%Y").parse;
     franchiseData.forEach(function (d){
         d.date = parseDate(d.date);
     });
     
-    /* select menu 1 */
+    /*select menu 1*/
     var dim = ndx.dimension(dc.pluck('franchise'));
     var group = dim.group();
         
@@ -213,7 +213,7 @@
         .dimension(dim2)
         .group(group2);
         
-    /* select menu 3 */
+    /*select menu 3*/
     var dim3 = ndx.dimension(dc.pluck('franchise'));
     var group3 = dim3.group();
         
@@ -244,7 +244,7 @@
     
     /*scatter graph 2*/
     var gross_progress_dim = ndx.dimension(function (d) {
-        return [d.date, d.gross];
+        return [d.date, d.gross, d.title];
     });
     var gross_progress_group = gross_progress_dim.group();
     
