@@ -31,16 +31,13 @@
     <section class="section dashboard-head">
         <div class="container">
             <h4 class="alert alert-dismissible alert-danger"> Compare Marvel Data: </h4>
-        <div class="row">
-            <div class="col-xs-12 col-sm-12">
+            <div class="row">
+            <div class="col-xs-6 col-sm-6">
               <div id="franchise-selector"> Franchise Data Selector: </div>
             </div>
-        </div>
-        <div class="row">
             <div class="col-xs-12 col-sm-12">
               <div id="title-selector"> Individual Movie Data: </div> 
             </div>
-        </div>
         </div>
     </section>
     
@@ -217,12 +214,21 @@
         .group(group2);
         
     /* select menu 3 */
-    var dim3 = ndx.dimension(dc.pluck('title'));
+    var dim3 = ndx.dimension(dc.pluck('franchise'));
     var group3 = dim3.group();
         
     dc.selectMenu("#title-selector-2")
         .dimension(dim3)
+        .multiple(true)
         .group(group3);
+    
+    /* select menu 4 */
+    var dim4 = ndx.dimension(dc.pluck('date'));
+    var group4 = dim4.group();
+        
+    dc.selectMenu("#release-date-selector")
+        .dimension(dim4)
+        .group(group4);
     
     /*dates*/
     var date_dim = ndx.dimension(dc.pluck('date'));
@@ -335,12 +341,6 @@
             .margins({top: 10, right: 50, bottom: 50, left: 60})
             .dimension(franchise_dim)
             .group(cinemas_per_franchise)
-            // .stack(infinitywargross, "Infinity War")
-            // .stack(infinitywar"gross", "Infinity War")
-            // .stack(endgame"gross", "endgame")
-            // .stack(avengers"gross", "avengers")
-            // .stack(ultron"gross", "Avengers II: Age of Ultron")
-            // .stack(ant_man"gross", "ant man")
             .transitionDuration(500)
             .x(d3.scale.ordinal())
             .xUnits(dc.units.ordinal)
@@ -460,7 +460,7 @@
                         .group(avengersFranchiseGross, "Avengers"),
                     dc.lineChart(compositeChart)
                         .colors('orange')
-                        .group(thorFranchiseGross, "thor"),
+                        .group(thorFranchiseGross, "Thor"),
                     dc.lineChart(compositeChart)
                         .colors('black')
                         .group(antManFranchiseGross, "Ant-Man"),
