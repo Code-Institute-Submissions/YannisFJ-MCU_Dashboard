@@ -28,10 +28,16 @@
         </div>
     </nav>
     
-    <section class="section">
+    <section class="section dashboard-head">
+        <h4> Compare Marvel Movie Data: </h4>
         <div class="row">
             <div class="col-xs-12 col-sm-12">
-              <div id="franchise-selector"></div>
+              <div id="franchise-selector"> Franchise Data Selector: </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-sm-12">
+              <div id="title-selector"> Title Comparison Selector: </div> 
             </div>
         </div>
     </section>
@@ -192,13 +198,29 @@
         d.date = parseDate(d.date);
     });
     
-    /* select menu*/
+    /* select menu 1 */
     var dim = ndx.dimension(dc.pluck('franchise'));
     var group = dim.group();
         
     dc.selectMenu("#franchise-selector")
         .dimension(dim)
         .group(group);
+        
+    /* select menu 2 */
+    var dim2 = ndx.dimension(dc.pluck('title'));
+    var group2 = dim2.group();
+        
+    dc.selectMenu("#title-selector")
+        .dimension(dim2)
+        .group(group2);
+        
+    /* select menu 3 */
+    var dim3 = ndx.dimension(dc.pluck('title'));
+    var group3 = dim3.group();
+        
+    dc.selectMenu("#title-selector-2")
+        .dimension(dim3)
+        .group(group3);
     
     /*dates*/
     var date_dim = ndx.dimension(dc.pluck('date'));
