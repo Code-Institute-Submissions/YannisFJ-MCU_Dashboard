@@ -30,7 +30,7 @@
     
     <section class="section dashboard-head">
         <div class="container">
-            <h4 class="alert alert-dismissible alert-danger"> Compare Marvel Data: </h4>
+            <p class="alert alert-dismissible alert-danger"> This data dashboard provides information regarding Marvel Movie franchises (franchise being 2+ movies). </p>
             <div class="row">
             <div class="col-xs-6 col-sm-6">
               <div id="franchise-selector"> Franchise Data Selector: </div>
@@ -238,13 +238,18 @@
     
     /* for budget related scatter graph */
     var budget_dim = ndx.dimension(function (d) {
-        return [d.date, d.budget];
+        return [d.date, d.budget, d.title, d.franchise];
     });
+    
     var budget_group = budget_dim.group();
     
+    var scatterColors = d3.scale.ordinal()
+                .domain(["Iron Man", "Captain America", "Thor", "Ant-Man", "Avengers", "Guardians of the Galaxy"])
+                .range(["Tomato", "Orange", "Violet", "green", "SlateBlue", "purple"]);
+
     /*scatter graph 2*/
     var gross_progress_dim = ndx.dimension(function (d) {
-        return [d.date, d.gross, d.title];
+        return [d.date, d.gross];
     });
     var gross_progress_group = gross_progress_dim.group();
     
@@ -371,6 +376,13 @@
             .clipPadding(10)
             .xAxisLabel("Release Date of MCU Movies")
             .yAxisLabel("Budget Spent (USD $)")
+            .title(function (d) {
+                return d.key[2] + ", had a budget of $" + d.key[1];
+            })
+            .colorAccessor(function(d) {
+                return d.key[3];
+            })
+            .colors(scatterColors)
             .dimension(budget_dim)
             .group(budget_group)
             .margins({top: 10, right: 50, bottom: 75, left: 105});
