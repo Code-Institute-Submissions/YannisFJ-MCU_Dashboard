@@ -7,6 +7,19 @@
 	line-height: 1.2;
 }
 
-#title-selector {
-    
+/* axis charts max and min temperature & total budget */
+#stacked-chart .x.axis text {
+    text-anchor: end !important;
+    transform: rotate(-25deg);
+    font: 7px sans-serif;
+}
+
+#gross_title .pie-label-group text {
+    fill: rgb(0, 0, 0);
+    text-shadow: #FC0 1px 0 10px;
+}
+
+
+h1 {
+    margin-bottom: 25px;
 }
