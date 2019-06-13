@@ -60,28 +60,32 @@
         
         <section class="section">
             <div class="container">
+                
                 <div class="row">
                     <div class="col-xs-12 col-sm-12 text-center">
-                        <h1> Opening Weekend Gross </h1>
+                        <h1> Worldwide Gross per Franchise</h1>
                     </div>
-                     <div class="col-xs-12 col-sm-12 text-center" id="weekend"></div>
+                </div>
+                
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 text-center" id="gross_movie"></div>
                 </div>
             </div>
         </section>
         
-        <section class="section">
+        
+        
+         <section class="section">
             <div class="container">
                 <div class="row">
                     <div class="col-xs-12 col-sm-12 text-center">
-                        <h1> Cinemas per Franchise </h1>
+                        <h1> Movie Budget Growth </h1>
                     </div>
-                     <div class="col-xs-12 col-sm-12 text-center" id="cinemas_per_franchise"></div>
+                     <div class="col-xs-12 col-sm-12 text-center" id="scatter"></div>
                 </div>
             </div>
         </section>
-        
-        
-        
+     
         <section class="section">
             <div class="container">
                 <div class="row">
@@ -97,14 +101,12 @@
             <div class="container">
                 <div class="row">
                     <div class="col-xs-12 col-sm-12 text-center">
-                        <h1> Movie Budget Growth </h1>
+                        <h1> Opening Weekend Gross </h1>
                     </div>
-                     <div class="col-xs-12 col-sm-12 text-center" id="scatter"></div>
+                     <div class="col-xs-12 col-sm-12 text-center" id="weekend"></div>
                 </div>
             </div>
         </section>
-        
-        
         
         <section class="section">
             <div class="container">
@@ -117,22 +119,18 @@
             </div>
         </section>
         
-        
-        
         <section class="section">
             <div class="container">
-                
                 <div class="row">
                     <div class="col-xs-12 col-sm-12 text-center">
-                        <h1> Worldwide Gross per Franchise</h1>
+                        <h1> Cinemas per Franchise </h1>
                     </div>
-                </div>
-                
-                <div class="row">
-                    <div class="col-xs-12 col-sm-12 text-center" id="gross_movie"></div>
+                     <div class="col-xs-12 col-sm-12 text-center" id="cinemas_per_franchise"></div>
                 </div>
             </div>
         </section>
+    
+        
         
     
         
@@ -333,6 +331,9 @@
             .dimension(franchise_dim)
             .group(total_gross_per_franchise)
             .transitionDuration(500)
+            .title(function (d) {
+                return "The " + d.key + " franchise had a worldwide gross of $" + d.value;
+            })
             .x(d3.scale.ordinal())
             .xUnits(dc.units.ordinal)
             .xAxisLabel("MCU Franchises (2+ movies)")
@@ -346,6 +347,9 @@
             .dimension(franchise_dim)
             .group(cinemas_per_franchise)
             .transitionDuration(500)
+            .title(function (d) {
+                return d.key + " was shown in " + d.value + " cinemas";
+            })
             .x(d3.scale.ordinal())
             .xUnits(dc.units.ordinal)
             .xAxisLabel("MCU Franchises (2+ movies)")
