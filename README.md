@@ -6,7 +6,7 @@ Due to the dashboard's interactive nature, the project fulfils the desire of tru
 Users can reset by putting the menu to 'select all'.
  
 
-##Demo
+## Demo
 
 A live demo can be found here: https://yannisfj.github.io/MCU_Dashboard/
 
@@ -28,7 +28,7 @@ A live demo can be found here: https://yannisfj.github.io/MCU_Dashboard/
 
 ## Technologies Used
 
--	DC, D3, Crossfilter and Queue – used to create the interactive graphs and process data from the JSON file.
+-	**DC, D3, Crossfilter and Queue** – used to create the interactive graphs and process data from the JSON file.
 
 -	**JavaScript** - used to bring the graphs to life by adding dimensions, groups, colors, titles and much more.
 
@@ -38,7 +38,7 @@ A live demo can be found here: https://yannisfj.github.io/MCU_Dashboard/
 
 -	 **Bootstrap (3.3.7)** – used for great features and modern look. Carousel, thumbnails, scrollSpy and modals were made possible: https://getbootstrap.com/docs/3.3/css/
 
--	JSON validator - https://jsonlint.com/
+-	**JSON validator** - https://jsonlint.com/
 
 
 ## Deployment
