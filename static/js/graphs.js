@@ -316,8 +316,6 @@ function makeGraphs(error, movieData) {
             
 
     dc.renderAll();
-
-
 }
 
 
