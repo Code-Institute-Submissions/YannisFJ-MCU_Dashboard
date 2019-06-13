@@ -16,6 +16,7 @@
     <script type="text/javascript" src="static/js/crossfilter.min.js"></script>
     <script type="text/javascript" src="static/js/dc.min.js"></script>
     <script type="text/javascript" src="static/js/queue.min.js"></script>
+    <script type="text/javascript" src="/static/js/graphs.js"></script>
 </head>
 
 <body>
@@ -147,56 +148,13 @@
     
 
 
-        
     
-        
-    
-
-
-
+<!--
     <script>
-   /* queue()
-       .defer(d3.json, "data/movie_data.json")
-       .await(makeGraphs);
-  */
+  
     
-    var franchiseData = [
-{"universe": "Marvel", "title": "Iron Man", "franchise": "Iron Man", "budget": 186e6, "gross": 585e6, "opening": 102e6, "date": "02/05/2008", "cinemas": 4154},
-
-{"universe": "Marvel", "title": "Iron Man II", "franchise": "Iron Man", "budget": 170e6, "gross": 621e6, "opening": 128e6, "date": "07/05/2010", "cinemas": 4390},
-
-{"universe": "Marvel", "title": "Iron Man III", "franchise": "Iron Man", "budget": 200e6, "gross": 1215e6, "opening": 174e6, "date": "03/05/2013", "cinemas": 4253},
-
-{"universe": "Marvel", "title": "Captain America I: The First Avenger", "franchise": "Captain America", "budget": 140e6, "gross": 370e6, "opening": 65e6, "date": "22/07/2011", "cinemas": 3715}, 
-
-{"universe": "Marvel", "title": "Captain America II: The Winter Soldier", "franchise": "Captain America", "budget": 170e6, "gross": 714e6, "opening": 95e6, "date": "04/4/2014", "cinemas": 3938}, 
-
-{"universe": "Marvel", "title": "Captain America III: Civil War", "franchise": "Captain America", "budget": 250e6, "gross": 1140e6, "opening": 176e6, "date": "06/05/2016", "cinemas": 4226}, 
-
-{"universe": "Marvel", "title": "Thor", "franchise": "Thor", "budget": 150e6, "gross": 449e6, "opening": 65e6, "date": "05/06/2011", "cinemas": 3955}, 
-
-{"universe": "Marvel", "title": "Thor II: The Dark World", "franchise": "Thor", "budget": 150e6, "gross": 644e6, "opening": 85e6, "date": "08/11/2013", "cinemas": 3841}, 
-
-{"universe": "Marvel", "title": "Thor III: Ragnarock", "franchise": "Thor", "budget": 180e6, "gross": 846e6, "opening": 122e6, "date": "03/11/2017", "cinemas": 4080}, 
-
-{"universe": "Marvel", "title": "Ant Man", "franchise": "Ant-Man", "budget": 130e6, "gross": 518e6, "opening": 57e6, "date": "17/07/2015", "cinemas": 3856}, 
-
-{"universe": "Marvel", "title": "Ant Man II", "franchise": "Ant-Man", "budget": 130e6, "gross": 623e6, "opening": 75e6, "date": "06/07/2018", "cinemas":  4206}, 
-
-{"universe": "Marvel", "title": "Avengers I", "franchise": "Avengers", "budget": 225e6, "gross": 1517e6, "opening": 207e6, "date": "04/05/2012", "cinemas": 4349}, 
-
-{"universe": "Marvel", "title": "Avengers II: Age of Ultron", "franchise": "Avengers", "budget": 330e6, "gross": 1403e6, "opening": 191e6, "date": "01/05/2015", "cinemas": 4276}, 
-
-{"universe": "Marvel", "title": "Avengers III: Infinity War", "franchise": "Avengers", "budget": 300e6, "gross": 2048e6, "opening": 257e6, "date": "27/04/2018", "cinemas": 4474}, 
-
-{"universe": "Marvel", "title": "Avengers IV: Endgame", "franchise": "Avengers", "budget": 356e6, "gross": 2713e6, "opening": 357e6, "date": "26/04/2019", "cinemas": 4662}, 
-
-{"universe": "Marvel", "title": "Guardians of The Galaxy", "franchise": "Guardians of the Galaxy", "budget": 170e6, "gross" : 770e6, "opening": 94e6, "date": "01/08/2014", "cinemas": 4088}, 
-
-{"universe": "Marvel", "title": "Guardians of The Galaxy 2", "franchise": "Guardians of the Galaxy", "budget": 200e6, "gross": 862e6, "opening": 146e6, "date": "05/05/2017", "cinemas": 4347}, 
-        ];
     
-    var ndx = crossfilter(franchiseData);
+    
     
     /*date formatting*/
     var parseDate = d3.time.format("%d/%m/%Y").parse;
@@ -205,12 +163,7 @@
     });
     
     /*select menu 1*/
-    var dim = ndx.dimension(dc.pluck('franchise'));
-    var group = dim.group();
-        
-    dc.selectMenu("#franchise-selector")
-        .dimension(dim)
-        .group(group);
+    
         
     /* select menu 2 */
     var dim2 = ndx.dimension(dc.pluck('title'));
@@ -261,9 +214,9 @@
     var gross_progress_group = gross_progress_dim.group();
     
     /* for franchise related graphs */
-    var franchise_dim = ndx.dimension(dc.pluck('franchise'));
     
-    var total_gross_per_franchise = franchise_dim.group().reduceSum(dc.pluck("gross"));
+    
+    
     var cinemas_per_franchise = franchise_dim.group().reduceSum(dc.pluck("cinemas"));
     var budget_per_franchise = franchise_dim.group().reduceSum(dc.pluck("budget"));
     
@@ -337,21 +290,7 @@
         .yAxisLabel("Opening Weekend Gross ($)")
         .legend(dc.legend().x(130).y(0).itemHeight(15).gap(5));
     
-        dc.barChart("#gross_movie")
-            .width(750)
-            .height(300)
-            .margins({top: 50, right: 50, bottom: 50, left: 100})
-            .dimension(franchise_dim)
-            .group(total_gross_per_franchise)
-            .transitionDuration(500)
-            .title(function (d) {
-                return "The " + d.key + " franchise had a worldwide gross of $" + d.value;
-            })
-            .x(d3.scale.ordinal())
-            .xUnits(dc.units.ordinal)
-            .xAxisLabel("MCU Franchises (2+ movies)")
-            .yAxisLabel("Worldwide gross ($)")
-            .yAxis().ticks(7);
+        
             
             dc.barChart("#cinemas_per_franchise")
             .width(800)
@@ -511,7 +450,7 @@
     
     
     </script>
-    
+    -->
    
 </body>
 </html>
