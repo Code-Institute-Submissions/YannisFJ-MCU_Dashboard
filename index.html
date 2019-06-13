@@ -361,6 +361,9 @@
             .radius(1500)
             .dimension(title_dim)
             .group(gross_per_title)
+            .title(function (d) {
+                return d.key + ", had a worldwide gross of $" + d.value;
+            })
             .transitionDuration(1500);
         
         dc.pieChart("#budgetpertitle")
@@ -461,6 +464,8 @@
                 .margins({top: 10, right: 50, bottom: 40, left: 110})
                 .x(d3.time.scale().domain([min_date, max_date]))
                 .yAxisLabel("Worldwide Gross (USD $)")
+                .title(function (d) {
+                return "Movie had a worldwide gross of $" + d.value;})
                 .legend(dc.legend().x(130).y(20).itemHeight(13).gap(5))
                 .renderHorizontalGridLines(true)
                 .compose([
