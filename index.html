@@ -183,7 +183,7 @@
 
 {"universe": "Marvel", "title": "Ant Man II", "franchise": "Ant-Man", "budget": 130e6, "gross": 623e6, "opening": 75e6, "date": "06/07/2018", "cinemas":  4206}, 
 
-{"universe": "Marvel", "title": "The Avengers", "franchise": "Avengers", "budget": 225e6, "gross": 1517e6, "opening": 207e6, "date": "04/05/2012", "cinemas": 4349}, 
+{"universe": "Marvel", "title": "Avengers I", "franchise": "Avengers", "budget": 225e6, "gross": 1517e6, "opening": 207e6, "date": "04/05/2012", "cinemas": 4349}, 
 
 {"universe": "Marvel", "title": "Avengers II: Age of Ultron", "franchise": "Avengers", "budget": 330e6, "gross": 1403e6, "opening": 191e6, "date": "01/05/2015", "cinemas": 4276}, 
 
@@ -282,7 +282,7 @@
     var movieBudget = title_dim.group().reduceSum(function (d) {
           if (d.title === "Avengers IV: Endgame") {
                  return +d.budget;
-             } else if (d.title === "The Avengers") {
+             } else if (d.title === "Avengers I") {
                  return +d.budget;
              } else if (d.title === "Avengers III: Infinity War") {
                  return +d.budget;
@@ -430,7 +430,6 @@
                     return 0;
                 }
             });
-            
             
             var captainAmericaFranchiseGross = date_dim.group().reduceSum(function (d){
                 if (d.franchise === "Captain America") {
