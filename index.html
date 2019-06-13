@@ -30,13 +30,22 @@
     
     <section class="section dashboard-head">
         <div class="container">
-            <p class="alert alert-dismissible alert-danger"> This data dashboard provides information regarding Marvel Movie franchises (franchise being 2+ movies). </p>
+            <div class="alert alert-dismissible alert-danger"> 
+                <b>This data dashboard provides info regarding Marvel Movie franchises (franchise being 2+ movies).</b> 
+                By clicking the charts themselves, or the buttons below, you can compare a variety of Marvel movie data. For example:
+                <br>
+                <br>
+                <i><ul>
+                    <li> Which movie had the most cinema screenings between 2011 and 2015? </li>
+                    <li> What is the correlation between invidiviual movie performance and subsequent franchise budget growth/decrease? </li>
+                </ul></i>
+            </div>
             <div class="row">
             <div class="col-xs-6 col-sm-6">
-              <div id="franchise-selector"> Franchise Data Selector: </div>
+              <div id="franchise-selector"> Franchise Data: &nbsp</div>
             </div>
             <div class="col-xs-12 col-sm-12">
-              <div id="title-selector"> Individual Movie Data: </div> 
+              <div id="title-selector"> Individual Movie Data:&nbsp </div> 
             </div>
         </div>
     </section>
@@ -319,6 +328,9 @@
         .margins({top: 50, right: 50, bottom: 150, left: 80})
         .dimension(title_dim)
         .group(movieBudget, "Movie Budget")
+        .title(function (d) {
+                return "$" + d.value;
+            })
         .stack(weekend_gross_title, "Movie Opening Weekend Gross")
         .x(d3.scale.ordinal())
         .xUnits(dc.units.ordinal)
@@ -371,6 +383,9 @@
             .height(300)
             .radius(1500)
             .dimension(title_dim)
+            .title(function (d) {
+                return d.key + ", had a budget of $" + d.value;
+            })
             .group(budget_per_title)
             .transitionDuration(1500);
         
