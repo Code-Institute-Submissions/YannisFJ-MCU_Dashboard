@@ -15,9 +15,7 @@ A live demo can be found here: https://yannisfj.github.io/MCU_Dashboard/
 
 •	**Dynamic Graphs** – When one aspect of a graph is selected, the others change accordingly. For example, in the picture below, a time frame was selected and the pie chart below it changed to show movies from only that time frame
 
- 
- 
-•	**Select Menus** – The two select menus allow a user to cherry pick the data of a specific movie or franchise. For example, below we have selected the 'Captain America' franchise, and can now have a selection of any 3 Captain America movies (if we wish to delve deeper into the movie data).
+• **Select Menus** – The two select menus allow a user to cherry pick the data of a specific movie or franchise. For example, below we have selected the 'Captain America' franchise, and can now have a selection of any 3 Captain America movies (if we wish to delve deeper into the movie data).
 
  
 
