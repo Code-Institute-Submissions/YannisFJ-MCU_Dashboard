@@ -263,10 +263,11 @@
     
     var gross_per_title = title_dim.group().reduceSum(dc.pluck("gross"));
     var budget_per_title = title_dim.group().reduceSum(dc.pluck("budget"));
+    var weekend_gross_title = title_dim.group().reduceSum(dc.pluck('opening'));
     
     /* opening */
     var weekend_gross = date_dim.group().reduceSum(dc.pluck('opening'));
-   
+    
     /*budget stacked graph*/
     
     var movieBudget = title_dim.group().reduceSum(function (d) {
@@ -317,8 +318,8 @@
         .height(500)
         .margins({top: 50, right: 50, bottom: 150, left: 80})
         .dimension(title_dim)
-        .group(budget_per_title, "Movie Opening Weekend Gross")
-        .stack(movieBudget, "Movie Budget")
+        .group(movieBudget, "Movie Budget")
+        .stack(weekend_gross_title, "Movie Opening Weekend Gross")
         .x(d3.scale.ordinal())
         .xUnits(dc.units.ordinal)
         .yAxisLabel("Opening Weekend Gross ($)")
