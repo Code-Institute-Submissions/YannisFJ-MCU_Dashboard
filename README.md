@@ -105,5 +105,4 @@ Through testing, I discovered a few problems that were all ultimately fixed, the
 
 ### Acknowledgements
 
--	My tutor Guido 
--	Tutors at code institute who helped me identify why my graphs weren't displaying
+-	My mentor Guido
