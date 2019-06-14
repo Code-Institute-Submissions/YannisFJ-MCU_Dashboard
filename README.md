@@ -4,7 +4,6 @@
 
 This project is an interactive dashboard I have created for users to compare/contrast data from various 'Marvel Cinematic Universe' films. The data ranges from budgets, opening weekend gross, cinemas released in, release dates, worldwide gross and allows users to ascertain some interesting correlations! 
 Due to the dashboard's interactive nature, the project fulfils the desire of true Marvel fans to personally identify interesting trends and stats. I have provided two select-menus for users to isolate data from franchises and/or individual movies. 
- 
 
 ## Demo
 
@@ -16,12 +15,15 @@ A live demo can be found here: https://yannisfj.github.io/MCU_Dashboard/
 
 •	**Dynamic Graphs** – When one aspect of a graph is selected, the others change accordingly. For example, in the picture below, a time frame was selected and the pie chart below it changed to show movies from only that time frame
 
+<img width="514" alt="Screenshot 2019-06-13 at 14 48 31" src="https://user-images.githubusercontent.com/44097978/59495009-55ef0380-8e86-11e9-9fa1-8c95b106dae1.png">
+
 • **Select Menus** – The two select menus allow a user to cherry pick the data of a specific movie or franchise. For example, below we have selected the 'Captain America' franchise, and can now have a selection of any 3 Captain America movies (if we wish to delve deeper into the movie data).
 
+<img width="1033" alt="Screenshot 2019-06-13 at 23 24 37" src="https://user-images.githubusercontent.com/44097978/59495055-70c17800-8e86-11e9-902a-4d9e2e9c5136.png">
  
-
-
 •	**Hover** – When hovering over a particular movie, the dashboard will tell the user in plain English what it represents:
+ 
+<img width="1280" alt="Screenshot 2019-06-13 at 13 00 22" src="https://user-images.githubusercontent.com/44097978/59495078-7ae37680-8e86-11e9-97cc-124ef85c609e.png">
  
 ## UX Design
 
