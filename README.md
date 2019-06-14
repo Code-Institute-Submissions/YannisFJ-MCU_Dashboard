@@ -92,7 +92,7 @@ I also utilised automated testing via the Jasmine testing framework. This was to
 
 ## Deployment
 
-The dashboard is hosted on GitHub pages, deployed from the master branch. As such, it will automatically update if there are new commits to the aformentioned branch.  If you want to run the site locally, you can clone this repository.
+The dashboard is hosted on GitHub pages, deployed from the master branch. As such, it will automatically update if there are new commits to the aformentioned branch.  If you want to run the site locally, you can clone this repository by pasting git clone https://github.com/YannisFJ/MCU_Dashboard.git into your terminal.
 
 ## Bugs:
 
