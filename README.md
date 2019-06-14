@@ -32,9 +32,7 @@ Below is a comparison of a stacked chart graph, before and after implementing my
 
 **The dashboard is for a certain type of user:**
 
-1. **People looking to identify movie trends** can easily use this dashboard for research, as it contains a multitude of easily comparable data. They are concerned with quickly identifying the data for all the different movies/franchises, something which the select menus easily allow. Furthermore, they are placed relatively close to the left side of the screen, as that is where the users eye is normally first drawn. In addition, I included an eye-catching paragraph that **gives examples** of potential data comparison ideas. 
-
-People curious about how the MCU has grown to where it is today would have no trouble identifying the movies that propelled it, and the franchises that have the most investment.
+1. **People looking to identify movie trends** can easily use this dashboard for research, as it contains a multitude of easily comparable data. They are concerned with quickly identifying the data for all the different movies/franchises, something which the select menus easily allow. Furthermore, they are placed relatively close to the left side of the screen, as that is where the users eye is normally first drawn. In addition, I included an eye-catching paragraph that **gives examples** of potential data comparison ideas. People curious about how the MCU has grown to where it is today would have no trouble identifying the movies that propelled it, and the franchises that have the most investment.
 
 Some user stories:
 
@@ -96,7 +94,7 @@ I also utilised automated testing via the Jasmine testing framework. This was to
 
 The dashboard is hosted on GitHub pages, deployed from the master branch. As such, it will automatically update if there are new commits to the aformentioned branch.  If you want to run the site locally, you can clone this repository by pasting git clone     into your terminal.
 
-# Bugs:
+## Bugs:
 
 Through testing, I discovered a few problems that were all ultimately fixed, these included:
 
