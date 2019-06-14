@@ -3,6 +3,7 @@
 **Milestone Project 2**
 
 This project is an interactive dashboard I have created for users to compare/contrast data from various 'Marvel Cinematic Universe' films. The data ranges from budgets, opening weekend gross, cinemas released in, release dates, worldwide gross and allows users to ascertain some interesting correlations! 
+
 Due to the dashboard's interactive nature, the project fulfils the desire of true Marvel fans to personally identify interesting trends and stats. I have provided two select-menus for users to isolate data from franchises and/or individual movies. 
 
 ## Demo
