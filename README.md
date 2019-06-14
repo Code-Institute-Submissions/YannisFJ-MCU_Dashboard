@@ -11,20 +11,6 @@ A live demo can be found here: https://yannisfj.github.io/MCU_Dashboard/
 
 <img width="1230" alt="Screenshot 2019-06-13 at 15 21 58" src="https://user-images.githubusercontent.com/44097978/59495002-51c2e600-8e86-11e9-985f-f29eb72b83a2.png">
 
-## Existing Features
-
-•	**Dynamic Graphs** – When one aspect of a graph is selected, the others change accordingly. For example, in the picture below, a time frame was selected and the pie chart below it changed to show movies from only that time frame
-
-<img width="514" alt="Screenshot 2019-06-13 at 14 48 31" src="https://user-images.githubusercontent.com/44097978/59495009-55ef0380-8e86-11e9-9fa1-8c95b106dae1.png">
-
-• **Select Menus** – The two select menus allow a user to cherry pick the data of a specific movie or franchise. For example, below we have selected the 'Captain America' franchise, and can now have a selection of any 3 Captain America movies (if we wish to delve deeper into the movie data).
-
-<img width="1033" alt="Screenshot 2019-06-13 at 23 24 37" src="https://user-images.githubusercontent.com/44097978/59495055-70c17800-8e86-11e9-902a-4d9e2e9c5136.png">
- 
-•	**Hover** – When hovering over a particular movie, the dashboard will tell the user in plain English what it represents:
- 
-<img width="1280" alt="Screenshot 2019-06-13 at 13 00 22" src="https://user-images.githubusercontent.com/44097978/59495078-7ae37680-8e86-11e9-97cc-124ef85c609e.png">
- 
 ## UX Design
 
 I wanted the UI to provide a simple, cheerful and fluid experience for users. 
@@ -34,6 +20,9 @@ The final layout satisfied the desire for simplicity, as the 'select menus' are 
 The colour schemes I selected (multi-coloured graphs, white background, 'Tomato' coloured header with white text) work well together and took some trial and error to get right. I played around with various text colours and decided that ultimately this was the best one. Furthermore, the font I chose was very eye catching!
 
 Below is a comparison of the same graph, before and after implementing my UX/UI philosophy. 
+
+<img width="803" alt="Screenshot 2019-06-11 at 01 22 34" src="https://user-images.githubusercontent.com/44097978/59495137-98b0db80-8e86-11e9-8a39-a591a921f1bf.png">  <img width="1232" alt="Screenshot 2019-06-13 at 14 47 55" src="https://user-images.githubusercontent.com/44097978/59495132-95b5eb00-8e86-11e9-9c1d-8c10f2ab43ca.png">
+
 
 **The dashboard is for a certain type of user:**
 
@@ -51,8 +40,6 @@ Some user stories:
 
 •	As a fan, I want to know how my favourite MCU franchise compares to others on all metrics
 
-
-
 ## Technologies Used
 
 -	**DC, D3, Crossfilter and Queue** – used to create the interactive graphs and process data from the JSON file.
@@ -66,6 +53,24 @@ Some user stories:
 -	 **Bootstrap (3.3.7)** – used for great features and modern look. Carousel, thumbnails, scrollSpy and modals were made possible: https://getbootstrap.com/docs/3.3/css/
 
 -	**JSON validator** - https://jsonlint.com/
+
+## Existing Features
+
+•	**Dynamic Graphs** – When one aspect of a graph is selected, the others change accordingly. For example, in the picture below, a time frame was selected and the pie chart below it changed to show movies from only that time frame
+
+<img width="514" alt="Screenshot 2019-06-13 at 14 48 31" src="https://user-images.githubusercontent.com/44097978/59495009-55ef0380-8e86-11e9-9fa1-8c95b106dae1.png">
+
+• **Select Menus** – The two select menus allow a user to cherry pick the data of a specific movie or franchise. For example, below we have selected the 'Captain America' franchise, and can now have a selection of any 3 Captain America movies (if we wish to delve deeper into the movie data).
+
+<img width="1033" alt="Screenshot 2019-06-13 at 23 24 37" src="https://user-images.githubusercontent.com/44097978/59495055-70c17800-8e86-11e9-902a-4d9e2e9c5136.png">
+ 
+•	**Hover** – When hovering over a particular movie, the dashboard will tell the user in plain English what it represents:
+ 
+<img width="1280" alt="Screenshot 2019-06-13 at 13 00 22" src="https://user-images.githubusercontent.com/44097978/59495078-7ae37680-8e86-11e9-97cc-124ef85c609e.png">
+
+## Features Left to Implement
+
+This project only contained Marvel movies that were part of a franchise, therefore excluding stand-alone movies like 'Black Panther' and 'Doctor Strange'. In the future, I will implement the data from these standalone movies to provide users with an even more comprehensive dashboard of the Marvel universe.
 
 ## Testing
 
@@ -84,10 +89,6 @@ I also utilised automated testing via the Jasmine testing framework. This was to
 ## Deployment
 
 The dashboard is hosted on GitHub pages, deployed from the master branch. As such, it will automatically update if there are new commits to the aformentioned branch.  If you want to run the site locally, you can clone this repository by pasting git clone     into your terminal.
-
-## Features Left to Implement
-
-This project only contained Marvel movies that were part of a franchise, therefore excluding stand-alone movies like 'Black Panther' and 'Doctor Strange'. In the future, I will implement the data from these standalone movies to provide users with an even more comprehensive dashboard of the Marvel universe.
 
 # Bugs:
 
