@@ -20,7 +20,7 @@ The final layout satisfied the desire for simplicity, as the 'select menus' are 
 
 The colour schemes I selected (multi-coloured graphs, white background, 'Tomato' coloured header with white text) work well together and took some trial and error to get right. I played around with various text colours and decided that ultimately this was the best one. Furthermore, the font I chose was very eye catching!
 
-Below is a comparison of a stacked chart graph, before and after implementing my UX/UI philosophy. 
+Below is a comparison of a stacked chart graph, before and after implementing my UX design, including font choice, boldness, angle of the graph text, labels of the graph and 'titles' when hovering over the bars.
 
 **After:**
 <img width="1232" alt="Screenshot 2019-06-13 at 14 47 55" src="https://user-images.githubusercontent.com/44097978/59495132-95b5eb00-8e86-11e9-9c1d-8c10f2ab43ca.png"> 
