@@ -23,7 +23,11 @@ The colour schemes I selected (multi-coloured graphs, white background, 'Tomato'
 Below is a comparison of the same graph, before and after implementing my UX/UI philosophy. 
 
 **after**
-<img width="1232" alt="Screenshot 2019-06-13 at 14 47 55" src="https://user-images.githubusercontent.com/44097978/59495132-95b5eb00-8e86-11e9-9c1d-8c10f2ab43ca.png"> **before** <img width="803" alt="Screenshot 2019-06-11 at 01 22 34" src="https://user-images.githubusercontent.com/44097978/59495137-98b0db80-8e86-11e9-8a39-a591a921f1bf.png">  
+<img width="1232" alt="Screenshot 2019-06-13 at 14 47 55" src="https://user-images.githubusercontent.com/44097978/59495132-95b5eb00-8e86-11e9-9c1d-8c10f2ab43ca.png"> 
+
+**before** 
+
+<img width="803" alt="Screenshot 2019-06-11 at 01 22 34" src="https://user-images.githubusercontent.com/44097978/59495137-98b0db80-8e86-11e9-8a39-a591a921f1bf.png">  
 
 
 **The dashboard is for a certain type of user:**
@@ -66,9 +70,9 @@ Some user stories:
 
 <img width="1033" alt="Screenshot 2019-06-13 at 23 24 37" src="https://user-images.githubusercontent.com/44097978/59495055-70c17800-8e86-11e9-902a-4d9e2e9c5136.png">
  
-•	**Hover** – When hovering over a particular movie, the dashboard will tell the user in plain English what it represents:
- 
-<img width="1280" alt="Screenshot 2019-06-13 at 13 00 22" src="https://user-images.githubusercontent.com/44097978/59495078-7ae37680-8e86-11e9-97cc-124ef85c609e.png">
+•	**Hover** – When hovering over a particular data point, the dashboard will tell the user in plain English what it represents:
+
+<img width="890" alt="Screenshot 2019-06-13 at 13 00 22" src="https://user-images.githubusercontent.com/44097978/59541615-1f3ddb00-8ed0-11e9-8c52-0a3fe18a2a8d.png">
 
 ## Features Left to Implement
 
