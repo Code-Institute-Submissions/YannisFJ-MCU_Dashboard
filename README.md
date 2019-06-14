@@ -10,6 +10,7 @@ Due to the dashboard's interactive nature, the project fulfils the desire of tru
 
 A live demo can be found here: https://yannisfj.github.io/MCU_Dashboard/
 
+<img width="1230" alt="Screenshot 2019-06-13 at 15 21 58" src="https://user-images.githubusercontent.com/44097978/59495002-51c2e600-8e86-11e9-985f-f29eb72b83a2.png">
 
 ## Existing Features
 
