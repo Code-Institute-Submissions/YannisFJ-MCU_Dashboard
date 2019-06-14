@@ -21,7 +21,8 @@ The colour schemes I selected (multi-coloured graphs, white background, 'Tomato'
 
 Below is a comparison of the same graph, before and after implementing my UX/UI philosophy. 
 
-<img width="1232" alt="Screenshot 2019-06-13 at 14 47 55" src="https://user-images.githubusercontent.com/44097978/59495132-95b5eb00-8e86-11e9-9c1d-8c10f2ab43ca.png"> <img width="803" alt="Screenshot 2019-06-11 at 01 22 34" src="https://user-images.githubusercontent.com/44097978/59495137-98b0db80-8e86-11e9-8a39-a591a921f1bf.png">  
+**after**
+<img width="1232" alt="Screenshot 2019-06-13 at 14 47 55" src="https://user-images.githubusercontent.com/44097978/59495132-95b5eb00-8e86-11e9-9c1d-8c10f2ab43ca.png"> **before** <img width="803" alt="Screenshot 2019-06-11 at 01 22 34" src="https://user-images.githubusercontent.com/44097978/59495137-98b0db80-8e86-11e9-8a39-a591a921f1bf.png">  
 
 
 **The dashboard is for a certain type of user:**
