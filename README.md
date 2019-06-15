@@ -12,15 +12,13 @@ A live demo can be found here: https://yannisfj.github.io/MCU_Dashboard/
 
 <img width="1230" alt="Screenshot 2019-06-13 at 15 21 58" src="https://user-images.githubusercontent.com/44097978/59495002-51c2e600-8e86-11e9-985f-f29eb72b83a2.png">
 
-## UX Design
+## UI/UX Design
 
-I wanted the UI to provide a simple, cheerful and fluid experience for users. 
+I wanted to provide a simple, cheerful and fluid experience for users. The final layout satisfied the desire for simplicity, as the 'select menus' are clearly signposted for users, allowing them to filter the data at will. 
 
-The final layout satisfied the desire for simplicity, as the 'select menus' are clearly signposted for users, allowing them to filter the data at will. Furthermore, its intuitive nature means that users will know how to reset the button (simply by going back to 'select all', which is the default selection). Furthermore, even if a user chooses not to use these buttons, when they click on the graphs, the other graphs will change accordingly, showing the user the interactivity. This is also explained in a very brief paragraph at the top of the page.
+From a UX perspective, the dashboard's intuitive nature means that users will know how to reset the button (simply by going back to 'select all', which is the default selection). Furthermore, even if a user chooses not to use these buttons, when they click on the graphs, the other graphs will change accordingly, showing the user the interactivity. This is also explained in a very brief paragraph at the top of the page.
 
-The colour schemes I selected (multi-coloured graphs, white background, 'Tomato' coloured header with white text) work well together and took some trial and error to get right. I played around with various text colours and decided that ultimately this was the best one. Furthermore, the font I chose was very eye catching!
-
-Below is a comparison of a stacked chart graph, before and after implementing my UX design, including font choice, boldness, angle of the graph text, labels of the graph and 'titles' when hovering over the bars.
+From a UI perspective, the colour schemes I selected (multi-coloured graphs, white background, 'Tomato' coloured header with white text) work well together and took some trial and error to get right. I played around with various text colours and decided that ultimately this was the best one. Furthermore, the font I chose was very eye catching! Below is a comparison of a stacked chart graph, before and after implementing my UX design, including font choice, boldness, angle of the graph text, labels of the graph and 'titles' when hovering over the bars.
 
 **After:**
 <img width="1232" alt="Screenshot 2019-06-13 at 14 47 55" src="https://user-images.githubusercontent.com/44097978/59495132-95b5eb00-8e86-11e9-9c1d-8c10f2ab43ca.png"> 
